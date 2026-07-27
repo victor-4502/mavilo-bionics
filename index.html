@@ -19,7 +19,7 @@
   <link rel="icon" href="favicon.svg" type="image/svg+xml" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/styles.css" />
   <script type="application/ld+json">
   {
@@ -28,275 +28,155 @@
     "name": "Mavilo Bionics",
     "url": "https://mavilobionics.com",
     "email": "contacto@mavilobionics.com",
-    "description": "Prótesis mioeléctricas con calibración en vivo y control por aplicación móvil.",
-    "sameAs": []
+    "description": "Prótesis mioeléctricas con calibración en vivo y control por aplicación móvil."
   }
   </script>
 </head>
 <body>
   <header class="site-header">
-    <div class="container header-inner">
-      <a class="brand" href="#top" aria-label="Mavilo Bionics">
-        <span class="wordmark">
-          <span class="wordmark-top">Mavilo</span>
-          <span class="wordmark-bottom">Bionics</span>
-        </span>
-      </a>
-
-      <nav class="nav" aria-label="Primary">
+    <div class="wrap header-row">
+      <a class="logo" href="#top">Mavilo <span>Bionics</span></a>
+      <nav class="nav">
         <a href="#producto" data-i18n="navProduct">Producto</a>
         <a href="#como-funciona" data-i18n="navHow">Cómo funciona</a>
-        <a href="#tecnologia" data-i18n="navTech">Tecnología</a>
         <a href="#clinicas" data-i18n="navClinics">Clínicas</a>
         <a href="#contacto" data-i18n="navContact">Contacto</a>
       </nav>
-
-      <div class="header-actions">
-        <div class="lang-switch" role="group" aria-label="Language">
-          <button type="button" class="lang-btn is-active" data-lang-btn="es" aria-pressed="true">ES</button>
-          <button type="button" class="lang-btn" data-lang-btn="en" aria-pressed="false">EN</button>
-        </div>
+      <div class="lang">
+        <button type="button" class="lang-btn is-on" data-lang-btn="es">ES</button>
+        <span aria-hidden="true">/</span>
+        <button type="button" class="lang-btn" data-lang-btn="en">EN</button>
       </div>
     </div>
   </header>
 
   <main id="top">
     <section class="hero">
-      <div class="hero-bg" aria-hidden="true">
-        <div class="orb orb-a"></div>
-        <div class="orb orb-b"></div>
-        <div class="grid-lines"></div>
-      </div>
-
-      <div class="container hero-grid">
-        <div class="hero-copy reveal">
-          <p class="eyebrow" data-i18n="heroEyebrow">Biónica de precisión</p>
-          <h1 data-i18n="heroTitle">Calibración y control de prótesis mioeléctricas</h1>
-          <p class="lead" data-i18n="heroSubtitle">
-            Mavilo Ara 1 une la prótesis, una aplicación móvil y servicios en la nube para que pacientes y clínicas calibren y controlen la señal muscular con claridad y seguridad.
-          </p>
-          <div class="hero-actions">
-            <a class="btn btn-primary" href="#producto" data-i18n="heroCtaPrimary">Ver el producto</a>
-            <a class="btn btn-ghost" href="#clinicas" data-i18n="heroCtaSecondary">Para clínicas</a>
-          </div>
-          <ul class="hero-stats">
-            <li data-i18n="heroStat1">Señal muscular en vivo</li>
-            <li data-i18n="heroStat2">Calibración segura</li>
-            <li data-i18n="heroStat3">Control inalámbrico</li>
-          </ul>
-        </div>
-
-        <div class="hero-lockup reveal" aria-hidden="true">
-          <div class="lockup-card">
-            <p class="lockup-eyebrow">Mavilo</p>
-            <p class="lockup-title">Bionics</p>
-            <p class="lockup-product">Ara <span>1</span></p>
-            <div class="lockup-divider"></div>
-            <ul class="lockup-tags">
-              <li data-i18n="panelLine1">Sensores</li>
-              <li data-i18n="panelLine2">Bluetooth</li>
-              <li data-i18n="panelLine3">App</li>
-              <li data-i18n="panelLine4">Nube</li>
-            </ul>
-          </div>
-        </div>
+      <div class="wrap hero-inner">
+        <p class="hero-label" data-i18n="heroLabel">Prótesis mioeléctricas</p>
+        <h1 class="hero-name">Mavilo<br /><span>Bionics</span></h1>
+        <p class="hero-product">Ara 1</p>
+        <p class="hero-text" data-i18n="heroText">
+          Calibración en consulta, control en el día a día. La prótesis, el teléfono y la nube trabajan juntos — sin complicarle la vida al paciente ni a la clínica.
+        </p>
+        <p class="hero-email">
+          <a id="contact-email-top" href="mailto:contacto@mavilobionics.com">contacto@mavilobionics.com</a>
+        </p>
       </div>
     </section>
 
-    <section id="producto" class="section section-light">
-      <div class="container">
-        <div class="section-head reveal">
-          <p class="eyebrow eyebrow-dark" data-i18n="productEyebrow">Producto</p>
+    <section id="producto" class="block">
+      <div class="wrap">
+        <div class="block-head">
           <h2 data-i18n="productTitle">Mavilo Ara 1</h2>
-          <p class="section-lead" data-i18n="productLead">
-            Una prótesis mioeléctrica pensada para el flujo real de calibración en clínica y el uso diario del paciente.
-          </p>
+          <p data-i18n="productLead">Prótesis mioeléctrica para calibrar en clínica y usar todos los días.</p>
         </div>
-
-        <div class="feature-grid">
-          <article class="feature-card reveal">
-            <div class="feature-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none"><path d="M4 18h16M6 14l3-8 3 5 2-3 4 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </div>
-            <h3 data-i18n="productPoint1Title">Lectura en tiempo real</h3>
-            <p data-i18n="productPoint1Body">La aplicación muestra la señal muscular mientras ajustas el umbral con un control visual preciso.</p>
-          </article>
-          <article class="feature-card reveal">
-            <div class="feature-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none"><path d="M12 3v4M8 7h8M7 11h10v8H7z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </div>
-            <h3 data-i18n="productPoint2Title">Modo calibración</h3>
-            <p data-i18n="productPoint2Body">La mano permanece bloqueada durante la calibración. El gesto se detecta sin movimiento involuntario.</p>
-          </article>
-          <article class="feature-card reveal">
-            <div class="feature-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none"><path d="M5 12l4 4L19 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </div>
-            <h3 data-i18n="productPoint3Title">Ajuste que perdura</h3>
-            <p data-i18n="productPoint3Body">El umbral se guarda en la prótesis y queda listo para el uso cotidiano del paciente.</p>
-          </article>
+        <div class="cols-3">
+          <div class="col">
+            <h3 data-i18n="productPoint1Title">Señal en vivo</h3>
+            <p data-i18n="productPoint1Body">Ves la contracción muscular en pantalla mientras ajustas el umbral.</p>
+          </div>
+          <div class="col">
+            <h3 data-i18n="productPoint2Title">Calibración segura</h3>
+            <p data-i18n="productPoint2Body">La mano no se mueve mientras calibras. El gesto se prueba sin riesgo.</p>
+          </div>
+          <div class="col">
+            <h3 data-i18n="productPoint3Title">El ajuste se queda</h3>
+            <p data-i18n="productPoint3Body">El umbral guardado en la prótesis sigue ahí después de apagar y encender.</p>
+          </div>
         </div>
       </div>
     </section>
 
-    <section id="como-funciona" class="section">
-      <div class="container">
-        <div class="section-head reveal">
-          <p class="eyebrow" data-i18n="howEyebrow">Flujo</p>
+    <section id="como-funciona" class="block block-shade">
+      <div class="wrap">
+        <div class="block-head">
           <h2 data-i18n="howTitle">Cómo funciona</h2>
-          <p class="section-lead" data-i18n="howLead">
-            Un proceso claro desde el encendido hasta el control cotidiano, pensado para técnicos, clínicos y usuarios.
-          </p>
         </div>
-
-        <ol class="steps">
-          <li class="step reveal">
-            <span class="step-num">01</span>
-            <div>
-              <h3 data-i18n="step1Title">Inicia sesión</h3>
-              <p data-i18n="step1Body">El paciente accede con su cuenta asignada por la clínica.</p>
-            </div>
+        <ol class="flow">
+          <li>
+            <strong data-i18n="step1Title">Inicia sesión</strong>
+            <span data-i18n="step1Body">Con la cuenta que te dio la clínica.</span>
           </li>
-          <li class="step reveal">
-            <span class="step-num">02</span>
-            <div>
-              <h3 data-i18n="step2Title">Conecta la prótesis</h3>
-              <p data-i18n="step2Body">La app enlaza solo el dispositivo autorizado para esa cuenta.</p>
-            </div>
+          <li>
+            <strong data-i18n="step2Title">Conecta la prótesis</strong>
+            <span data-i18n="step2Body">Solo el dispositivo asignado a tu usuario.</span>
           </li>
-          <li class="step reveal">
-            <span class="step-num">03</span>
-            <div>
-              <h3 data-i18n="step3Title">Calibra el umbral</h3>
-              <p data-i18n="step3Body">Ajusta la línea de umbral hasta que la contracción se detecte con precisión.</p>
-            </div>
+          <li>
+            <strong data-i18n="step3Title">Calibra</strong>
+            <span data-i18n="step3Body">Ajusta hasta que la contracción quede clara.</span>
           </li>
-          <li class="step reveal">
-            <span class="step-num">04</span>
-            <div>
-              <h3 data-i18n="step4Title">Controla con confianza</h3>
-              <p data-i18n="step4Body">Abre y cierra la mano con la señal calibrada para el usuario.</p>
-            </div>
+          <li>
+            <strong data-i18n="step4Title">Usa la mano</strong>
+            <span data-i18n="step4Body">Abre y cierra con la señal ya calibrada.</span>
           </li>
         </ol>
       </div>
     </section>
 
-    <section id="app" class="section section-app">
-      <div class="container">
-        <div class="section-head reveal">
-          <p class="eyebrow eyebrow-dark" data-i18n="appEyebrow">Aplicación</p>
-          <h2 data-i18n="appTitle">Control desde el teléfono</h2>
-          <p class="section-lead" data-i18n="appLead">
-            Interfaz clara y herramientas pensadas para el técnico y el paciente.
-          </p>
+    <section id="sistema" class="block">
+      <div class="wrap">
+        <div class="block-head">
+          <h2 data-i18n="techTitle">El sistema</h2>
+          <p data-i18n="techLead">Cuatro partes. Una sola experiencia.</p>
         </div>
-
-        <div class="app-features">
-          <article class="app-card reveal">
-            <h3 data-i18n="appFeature1Title">Inicio de sesión seguro</h3>
-            <p data-i18n="appFeature1Body">Cada usuario accede solo a su prótesis asignada.</p>
-          </article>
-          <article class="app-card reveal">
-            <h3 data-i18n="appFeature2Title">Señal en vivo</h3>
-            <p data-i18n="appFeature2Body">Visualiza y ajusta el umbral con precisión en pantalla.</p>
-          </article>
-          <article class="app-card reveal">
-            <h3 data-i18n="appFeature3Title">Calibración guiada</h3>
-            <p data-i18n="appFeature3Body">Modo seguro que bloquea el movimiento mientras calibras.</p>
-          </article>
-        </div>
+        <dl class="spec-list">
+          <div>
+            <dt data-i18n="techCard1Title">Sensores</dt>
+            <dd data-i18n="techCard1Body">Leen la señal del músculo.</dd>
+          </div>
+          <div>
+            <dt data-i18n="techCard2Title">Bluetooth</dt>
+            <dd data-i18n="techCard2Body">Conectan la prótesis al teléfono.</dd>
+          </div>
+          <div>
+            <dt data-i18n="techCard3Title">Aplicación</dt>
+            <dd data-i18n="techCard3Body">Calibras y controlas desde el móvil.</dd>
+          </div>
+          <div>
+            <dt data-i18n="techCard4Title">Nube</dt>
+            <dd data-i18n="techCard4Body">Tu cuenta y tu prótesis, vinculadas.</dd>
+          </div>
+        </dl>
       </div>
     </section>
 
-    <section id="tecnologia" class="section section-dark">
-      <div class="container">
-        <div class="section-head reveal">
-          <p class="eyebrow" data-i18n="techEyebrow">Sistema</p>
-          <h2 data-i18n="techTitle">Todo conectado</h2>
-          <p class="section-lead" data-i18n="techLead">
-            Cuatro piezas que trabajan juntas para que la experiencia sea simple, segura y confiable.
-          </p>
-        </div>
-
-        <div class="tech-grid">
-          <article class="tech-card reveal">
-            <h3 data-i18n="techCard1Title">Sensores</h3>
-            <p data-i18n="techCard1Body">Captan la señal muscular y la convierten en control preciso de la prótesis.</p>
-          </article>
-          <article class="tech-card reveal">
-            <h3 data-i18n="techCard2Title">Bluetooth</h3>
-            <p data-i18n="techCard2Body">Conexión inalámbrica entre la prótesis y el teléfono, sin cables ni complicaciones.</p>
-          </article>
-          <article class="tech-card reveal">
-            <h3 data-i18n="techCard3Title">Aplicación</h3>
-            <p data-i18n="techCard3Body">Calibración, monitoreo y control desde el móvil, en español e inglés.</p>
-          </article>
-          <article class="tech-card reveal">
-            <h3 data-i18n="techCard4Title">Nube</h3>
-            <p data-i18n="techCard4Body">Cuentas seguras y asignación de cada prótesis a su usuario y clínica.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section id="clinicas" class="section section-light">
-      <div class="container clinics-grid">
-        <div class="clinics-copy reveal">
-          <p class="eyebrow eyebrow-dark" data-i18n="clinicsEyebrow">Clínicas</p>
-          <h2 data-i18n="clinicsTitle">Diseñado para equipos clínicos</h2>
-          <p class="section-lead" data-i18n="clinicsLead">
-            Cada cuenta puede vincularse solo a la prótesis asignada. Menos fricción en consulta, más trazabilidad.
-          </p>
-          <ul class="check-list">
-            <li data-i18n="clinicsPoint1">Usuarios creados y gestionados por la clínica</li>
-            <li data-i18n="clinicsPoint2">Dispositivos registrados con identificador único</li>
-            <li data-i18n="clinicsPoint3">Flujo de calibración seguro en consulta</li>
-            <li data-i18n="clinicsPoint4">Aplicación lista para distribución en tiendas</li>
+    <section id="clinicas" class="block block-shade">
+      <div class="wrap clinics-layout">
+        <div>
+          <div class="block-head">
+            <h2 data-i18n="clinicsTitle">Para clínicas</h2>
+            <p data-i18n="clinicsLead">Cada paciente ve solo su prótesis. Tú decides quién tiene acceso a qué.</p>
+          </div>
+          <ul class="plain-list">
+            <li data-i18n="clinicsPoint1">Cuentas creadas por la clínica</li>
+            <li data-i18n="clinicsPoint2">Cada dispositivo con su identificador</li>
+            <li data-i18n="clinicsPoint3">Calibración en consulta, sin sorpresas</li>
           </ul>
         </div>
-
-        <div class="clinics-panel reveal">
-          <div class="panel-card">
-            <p class="panel-brand-top">Mavilo</p>
-            <p class="panel-brand-bottom">Bionics</p>
-            <p class="panel-product" data-i18n="panelProduct">Ara 1</p>
-            <ul class="panel-tags">
-              <li data-i18n="panelLine1">Sensores</li>
-              <li data-i18n="panelLine2">Bluetooth</li>
-              <li data-i18n="panelLine3">App</li>
-              <li data-i18n="panelLine4">Nube</li>
-            </ul>
-          </div>
-        </div>
+        <aside class="aside-note">
+          <p class="aside-kicker">Mavilo Bionics</p>
+          <p class="aside-product">Ara 1</p>
+          <p class="aside-body" data-i18n="asideNote">Disponible para equipos clínicos e investigación. Escríbenos si quieres probarlo.</p>
+        </aside>
       </div>
     </section>
 
-    <section id="contacto" class="section section-contact">
-      <div class="container contact-card reveal">
-        <p class="eyebrow" data-i18n="contactEyebrow">Contacto</p>
-        <h2 data-i18n="contactTitle">Hablemos de Mavilo</h2>
-        <p class="section-lead" data-i18n="contactLead">
-          ¿Eres clínica, investigador o distribuidor? Escríbenos para conocer Mavilo Ara 1 y próximos desarrollos.
+    <section id="contacto" class="block block-contact">
+      <div class="wrap">
+        <h2 data-i18n="contactTitle">Contacto</h2>
+        <p data-i18n="contactLead">Clínica, distribuidor o investigador — escríbenos.</p>
+        <p class="contact-mail">
+          <a id="contact-email" href="mailto:contacto@mavilobionics.com">contacto@mavilobionics.com</a>
         </p>
-        <div class="contact-actions">
-          <a id="contact-email" class="btn btn-primary" href="mailto:contacto@mavilobionics.com">contacto@mavilobionics.com</a>
-          <a class="btn btn-ghost-light" href="mailto:contacto@mavilobionics.com" data-i18n="contactCta">Enviar correo</a>
-        </div>
       </div>
     </section>
   </main>
 
   <footer class="site-footer">
-    <div class="container footer-inner">
-      <div>
-        <p class="footer-brand">Mavilo Bionics</p>
-        <p class="footer-tagline" data-i18n="footerTagline">Biónica con propósito humano.</p>
-      </div>
-      <div class="footer-links">
-        <a id="privacy-link" href="#" rel="noopener noreferrer" data-i18n="footerPrivacy">Política de privacidad</a>
-      </div>
-      <p class="footer-copy">© <span id="year"></span> Mavilo Bionics. <span data-i18n="footerRights">Todos los derechos reservados.</span></p>
+    <div class="wrap footer-row">
+      <p>Mavilo Bionics · <span id="year"></span></p>
+      <a id="privacy-link" href="#" data-i18n="footerPrivacy">Política de privacidad</a>
     </div>
   </footer>
 
