@@ -26,6 +26,15 @@ function applyTranslations(lang) {
   const meta = document.querySelector('meta[name="description"]');
   if (meta) meta.content = copy.metaDescription;
 
+  const ogTitle = document.querySelector('meta[property="og:title"]');
+  if (ogTitle) ogTitle.content = copy.metaTitle;
+  const ogDesc = document.querySelector('meta[property="og:description"]');
+  if (ogDesc) ogDesc.content = copy.metaDescription;
+  const twTitle = document.querySelector('meta[name="twitter:title"]');
+  if (twTitle) twTitle.content = copy.metaTitle;
+  const twDesc = document.querySelector('meta[name="twitter:description"]');
+  if (twDesc) twDesc.content = copy.metaDescription;
+
   document.querySelectorAll("[data-i18n]").forEach((el) => {
     const key = el.dataset.i18n;
     const value = copy[key];
