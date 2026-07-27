@@ -13,7 +13,8 @@ function setLang(lang) {
   document.documentElement.lang = lang;
   applyTranslations(lang);
   document.querySelectorAll("[data-lang-btn]").forEach((btn) => {
-    btn.classList.toggle("is-on", btn.dataset.langBtn === lang);
+    btn.classList.toggle("is-active", btn.dataset.langBtn === lang);
+    btn.setAttribute("aria-pressed", btn.dataset.langBtn === lang ? "true" : "false");
   });
 }
 
@@ -29,28 +30,36 @@ function applyTranslations(lang) {
   if (ogTitle) ogTitle.content = copy.metaTitle;
   const ogDesc = document.querySelector('meta[property="og:description"]');
   if (ogDesc) ogDesc.content = copy.metaDescription;
+  const twTitle = document.querySelector('meta[name="twitter:title"]');
+  if (twTitle) twTitle.content = copy.metaTitle;
+  const twDesc = document.querySelector('meta[name="twitter:description"]');
+  if (twDesc) twDesc.content = copy.metaDescription;
 
   document.querySelectorAll("[data-i18n]").forEach((el) => {
     const key = el.dataset.i18n;
     const value = copy[key];
-    if (value != null) el.textContent = value;
+    if (value == null) return;
+    if (el.tagName === "INPUT" || el.tagName === "TEXTAREA") {
+      el.placeholder = value;
+    } else {
+      el.textContent = value;
+    }
   });
 
-  document.querySelectorAll("#contact-email, #contact-email-top").forEach((link) => {
-    link.href = `mailto:${copy.contactEmail}`;
-    link.textContent = copy.contactEmail;
-  });
+  const emailLink = document.getElementById("contact-email");
+  if (emailLink) {
+    emailLink.href = `mailto:${copy.contactEmail}`;
+    emailLink.textContent = copy.contactEmail;
+  }
 }
 
-document.addEventListener("DOMContentLoaded", () => {
-  setLang(getLang());
-
-  document.querySelectorAll("[data-lang-btn]").forEach((btn) => {
-    btn.addEventListener("click", () => setLang(btn.dataset.langBtn));
-  });
-
-  const privacy = document.getElementById("privacy-link");
-  if (privacy) privacy.href = PRIVACY_URL;
+function setupNav() {
+  const header = document.querySelector(".site-header");
+  const toggle = () => {
+    header.classList.toggle("is-scrolled", window.scrollY > 12);
+  };
+  toggle();
+  window.addEventListener("scroll", toggle, { passive: true });
 
   document.querySelectorAll('a[href^="#"]').forEach((link) => {
     link.addEventListener("click", (event) => {
@@ -62,4 +71,41 @@ document.addEventListener("DOMContentLoaded", () => {
       target.scrollIntoView({ behavior: "smooth", block: "start" });
     });
   });
+}
+
+function setupReveal() {
+  const items = document.querySelectorAll(".reveal");
+  if (!("IntersectionObserver" in window)) {
+    items.forEach((el) => el.classList.add("is-visible"));
+    return;
+  }
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-visible");
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.12, rootMargin: "0px 0px -40px 0px" }
+  );
+
+  items.forEach((el) => observer.observe(el));
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  const lang = getLang();
+  setLang(lang);
+
+  document.querySelectorAll("[data-lang-btn]").forEach((btn) => {
+    btn.addEventListener("click", () => setLang(btn.dataset.langBtn));
+  });
+
+  const privacy = document.getElementById("privacy-link");
+  if (privacy) privacy.href = PRIVACY_URL;
+
+  setupNav();
+  setupReveal();
 });
