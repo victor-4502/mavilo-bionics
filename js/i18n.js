@@ -2,7 +2,7 @@ const translations = {
   es: {
     metaTitle: "Mavilo Bionics — Prótesis mioeléctricas",
     metaDescription:
-      "Mavilo Bionics desarrolla prótesis mioeléctricas con calibración en vivo y control por aplicación móvil. Conoce Mavilo Ara 1.",
+      "Mavilo Bionics desarrolla prótesis mioeléctricas con calibración en vivo y control por aplicación móvil. Conoce Mavilo Mav 1.",
     navProduct: "Producto",
     navHow: "Cómo funciona",
     navTech: "Tecnología",
@@ -11,14 +11,14 @@ const translations = {
     heroEyebrow: "Biónica de precisión",
     heroTitle: "Calibración y control de prótesis mioeléctricas",
     heroSubtitle:
-      "Mavilo Ara 1 une la prótesis, una aplicación móvil y servicios en la nube para que pacientes y clínicas calibren y controlen la señal muscular con claridad y seguridad.",
+      "Mavilo Mav 1 une la prótesis, una aplicación móvil y servicios en la nube para que pacientes y clínicas calibren y controlen la señal muscular con claridad y seguridad.",
     heroCtaPrimary: "Ver el producto",
     heroCtaSecondary: "Para clínicas",
     heroStat1: "Señal muscular en vivo",
     heroStat2: "Calibración segura",
     heroStat3: "Control inalámbrico",
     productEyebrow: "Producto",
-    productTitle: "Mavilo Ara 1",
+    productTitle: "Mavilo Mav 1",
     productLead:
       "Una prótesis mioeléctrica pensada para el flujo real de calibración en clínica y el uso diario del paciente.",
     productPoint1Title: "Lectura en tiempo real",
@@ -75,13 +75,13 @@ const translations = {
     contactEyebrow: "Contacto",
     contactTitle: "Hablemos de Mavilo",
     contactLead:
-      "¿Eres clínica, investigador o distribuidor? Escríbenos para conocer Mavilo Ara 1 y próximos desarrollos.",
+      "¿Eres clínica, investigador o distribuidor? Escríbenos para conocer Mavilo Mav 1 y próximos desarrollos.",
     contactEmail: "contacto@mavilobionics.com",
     contactCta: "Enviar correo",
     footerTagline: "Biónica con propósito humano.",
     footerPrivacy: "Política de privacidad",
     footerRights: "Todos los derechos reservados.",
-    panelProduct: "Ara 1",
+    panelProduct: "Mav 1",
     panelLine1: "Sensores",
     panelLine2: "Bluetooth",
     panelLine3: "App",
@@ -90,7 +90,7 @@ const translations = {
   en: {
     metaTitle: "Mavilo Bionics — Myoelectric prosthetics",
     metaDescription:
-      "Mavilo Bionics builds myoelectric prostheses with live calibration and mobile app control. Meet Mavilo Ara 1.",
+      "Mavilo Bionics builds myoelectric prostheses with live calibration and mobile app control. Meet Mavilo Mav 1.",
     navProduct: "Product",
     navHow: "How it works",
     navTech: "Technology",
@@ -99,14 +99,14 @@ const translations = {
     heroEyebrow: "Precision bionics",
     heroTitle: "Calibration and control for myoelectric prostheses",
     heroSubtitle:
-      "Mavilo Ara 1 brings together the prosthesis, a mobile app, and cloud services so patients and clinics can calibrate and control muscle signals with clarity and safety.",
+      "Mavilo Mav 1 brings together the prosthesis, a mobile app, and cloud services so patients and clinics can calibrate and control muscle signals with clarity and safety.",
     heroCtaPrimary: "Explore the product",
     heroCtaSecondary: "For clinics",
     heroStat1: "Live muscle signal",
     heroStat2: "Safe calibration",
     heroStat3: "Wireless control",
     productEyebrow: "Product",
-    productTitle: "Mavilo Ara 1",
+    productTitle: "Mavilo Mav 1",
     productLead:
       "A myoelectric prosthesis built for real clinical calibration workflows and everyday patient use.",
     productPoint1Title: "Real-time reading",
@@ -163,13 +163,13 @@ const translations = {
     contactEyebrow: "Contact",
     contactTitle: "Let's talk about Mavilo",
     contactLead:
-      "Clinic, researcher, or distributor? Reach out to learn about Mavilo Ara 1 and what's next.",
+      "Clinic, researcher, or distributor? Reach out to learn about Mavilo Mav 1 and what's next.",
     contactEmail: "contacto@mavilobionics.com",
     contactCta: "Send email",
     footerTagline: "Bionics with a human purpose.",
     footerPrivacy: "Privacy policy",
     footerRights: "All rights reserved.",
-    panelProduct: "Ara 1",
+    panelProduct: "Mav 1",
     panelLine1: "Sensors",
     panelLine2: "Bluetooth",
     panelLine3: "App",
