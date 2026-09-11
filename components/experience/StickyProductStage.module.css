@@ -1,0 +1,80 @@
+.stage {
+  display: none;
+}
+
+@media (min-width: 960px) {
+  .stage {
+    display: block;
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: min(52vw, 44rem);
+    height: 100dvh;
+    z-index: 5;
+    pointer-events: none;
+    padding: calc(var(--header-h) + 1.25rem) 1.5rem 1.5rem 0;
+  }
+}
+
+.frame {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 1.5rem;
+  overflow: hidden;
+  background: #000;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow:
+    0 0 0 1px rgba(0, 0, 0, 0.4),
+    0 30px 80px rgba(0, 0, 0, 0.55);
+}
+
+.slide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transform: scale(1.04);
+  transition: none;
+  will-change: opacity, transform;
+}
+
+.slide[data-active="true"] {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.image {
+  object-fit: contain;
+  object-position: center;
+}
+
+.vignette {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse at 50% 40%, transparent 35%, rgba(0, 0, 0, 0.55) 100%),
+    linear-gradient(180deg, rgba(0, 0, 0, 0.15), transparent 30%, rgba(0, 0, 0, 0.5));
+}
+
+.glow {
+  position: absolute;
+  inset: auto 10% -10%;
+  height: 40%;
+  background: radial-gradient(ellipse, rgba(43, 184, 232, 0.18), transparent 70%);
+  filter: blur(20px);
+  opacity: 0.55;
+  transition: opacity 0.6s ease;
+}
+
+.caption {
+  position: absolute;
+  left: 1.25rem;
+  bottom: 1.1rem;
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: 0.72rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(242, 246, 250, 0.55);
+}

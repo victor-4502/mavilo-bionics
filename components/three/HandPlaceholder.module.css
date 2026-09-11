@@ -1,0 +1,88 @@
+.placeholder {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+}
+
+.stage {
+  position: relative;
+  width: min(70%, 18rem);
+  aspect-ratio: 4 / 5;
+}
+
+.orb {
+  position: absolute;
+  inset: 10% 5%;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(43, 184, 232, 0.2),
+    transparent 70%
+  );
+  filter: blur(8px);
+}
+
+.plane {
+  position: absolute;
+  inset: 18% 22% 22%;
+  border-radius: 1.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: linear-gradient(
+    160deg,
+    rgba(255, 255, 255, 0.07),
+    rgba(255, 255, 255, 0.02)
+  );
+}
+
+.silhouette {
+  position: absolute;
+  left: 34%;
+  top: 22%;
+  width: 32%;
+  height: 52%;
+  border-radius: 40% 40% 28% 28%;
+  background: linear-gradient(180deg, #2a3648, #141c28);
+  box-shadow: 0 0 0 1px rgba(43, 184, 232, 0.15);
+}
+
+.ring {
+  position: absolute;
+  left: 50%;
+  bottom: 12%;
+  width: 55%;
+  height: 12%;
+  transform: translateX(-50%);
+  border-radius: 50%;
+  border: 1px solid rgba(43, 184, 232, 0.25);
+}
+
+.meta {
+  position: absolute;
+  left: var(--space-5);
+  bottom: var(--space-5);
+  right: var(--space-5);
+}
+
+.label {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-text);
+}
+
+.hint {
+  margin: var(--space-1) 0 0;
+  font-size: 0.8rem;
+  color: var(--color-text-subtle);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .orb {
+    filter: none;
+  }
+}

@@ -1,0 +1,258 @@
+.block,
+.blockTall,
+.contact {
+  position: relative;
+  z-index: 1;
+}
+
+.blockTall {
+  min-height: 120vh;
+}
+
+.rail {
+  position: relative;
+}
+
+.copy {
+  max-width: 34rem;
+}
+
+@media (min-width: 960px) {
+  .rail {
+    width: min(100%, calc(100% - min(52vw, 44rem) + var(--gutter)));
+    padding-right: 1.5rem;
+  }
+}
+
+.specs {
+  margin: 2rem 0 0;
+  padding: 0;
+  display: grid;
+  gap: 1rem;
+}
+
+.specs div {
+  display: grid;
+  gap: 0.25rem;
+  padding-top: 0.85rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.specs dt {
+  font-size: var(--fs-label);
+  letter-spacing: var(--track-label);
+  text-transform: uppercase;
+  color: var(--color-cyan);
+}
+
+.specs dd {
+  margin: 0;
+  color: var(--color-text-muted);
+}
+
+.timeline {
+  list-style: none;
+  margin: 2.5rem 0 0;
+  padding: 0;
+  display: grid;
+  gap: 0;
+  border-left: 1px solid rgba(43, 184, 232, 0.35);
+}
+
+.timeline li {
+  display: grid;
+  grid-template-columns: 3rem 1fr;
+  gap: 1rem;
+  padding: 1.25rem 0 1.25rem 1.25rem;
+  position: relative;
+}
+
+.timeline li::before {
+  content: "";
+  position: absolute;
+  left: -0.28rem;
+  top: 1.55rem;
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 50%;
+  background: var(--color-cyan);
+  box-shadow: 0 0 0 4px rgba(43, 184, 232, 0.15);
+}
+
+.timelineNum {
+  font-family: var(--font-display);
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  color: var(--color-text-subtle);
+  padding-top: 0.2rem;
+}
+
+.timeline h3 {
+  margin: 0 0 0.35rem;
+  font-size: 1.1rem;
+}
+
+.timeline p {
+  margin: 0;
+  color: var(--color-text-muted);
+  font-size: 0.95rem;
+}
+
+.indexList {
+  list-style: none;
+  margin: 2rem 0 0;
+  padding: 0;
+  display: grid;
+  gap: 0;
+}
+
+.indexList li {
+  display: grid;
+  grid-template-columns: 2.5rem 1fr;
+  gap: 1rem;
+  padding: 1.1rem 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.indexList li:last-child {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.indexList span {
+  font-family: var(--font-display);
+  font-size: 0.75rem;
+  color: var(--color-cyan);
+  padding-top: 0.2rem;
+}
+
+.indexList strong {
+  display: block;
+  margin-bottom: 0.25rem;
+  font-size: 1rem;
+}
+
+.indexList p {
+  margin: 0;
+  color: var(--color-text-muted);
+  font-size: 0.92rem;
+}
+
+.bareList {
+  list-style: none;
+  margin: 2rem 0 0;
+  padding: 0;
+  display: grid;
+  gap: 0.85rem;
+}
+
+.bareList li {
+  padding-left: 1.1rem;
+  position: relative;
+  color: var(--color-text-muted);
+}
+
+.bareList li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.55em;
+  width: 0.35rem;
+  height: 0.35rem;
+  border-radius: 50%;
+  background: var(--color-cyan);
+}
+
+.scrollCue {
+  margin: 1.25rem 0 0;
+  font-size: 0.85rem;
+  color: var(--color-text-subtle);
+  letter-spacing: 0.04em;
+}
+
+.gripControls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+}
+
+.gripControls .btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.mobileOnlyMedia,
+.mobileMotion {
+  display: grid;
+  margin-top: 2rem;
+}
+
+.mobileMotion {
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+}
+
+.bleedImage {
+  width: 100%;
+  height: auto;
+  border-radius: 1rem;
+  background: #000;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.contactInner {
+  max-width: 36rem;
+  padding: clamp(1.75rem, 4vw, 3rem);
+  border-radius: 1.25rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background:
+    radial-gradient(ellipse at top left, rgba(43, 184, 232, 0.12), transparent 50%),
+    rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(10px);
+}
+
+.audiences {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  list-style: none;
+  margin: 1.5rem 0 0;
+  padding: 0;
+}
+
+.audiences li {
+  padding: 0.35rem 0.7rem;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  font-size: 0.78rem;
+  color: var(--color-text-muted);
+}
+
+.contactActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 1.75rem;
+}
+
+@media (min-width: 960px) {
+  .mobileOnlyMedia,
+  .mobileMotion {
+    display: none;
+  }
+
+  .block,
+  .blockTall,
+  .contact {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+  }
+
+  .blockTall {
+    min-height: 140vh;
+  }
+}

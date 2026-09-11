@@ -1,0 +1,61 @@
+.root {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+  background: #000;
+}
+
+.wash {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 80% 60% at 20% 20%, rgba(11, 31, 58, 0.55), transparent 55%),
+    radial-gradient(ellipse 70% 50% at 85% 70%, rgba(5, 20, 40, 0.4), transparent 50%),
+    linear-gradient(180deg, #000 0%, #050b14 45%, #000 100%);
+  transition: background 0.8s ease;
+}
+
+.orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(60px);
+  opacity: 0.35;
+  will-change: transform, opacity;
+}
+
+.orbA {
+  width: min(42vw, 28rem);
+  height: min(42vw, 28rem);
+  top: -8%;
+  left: -6%;
+  background: rgba(43, 184, 232, 0.22);
+}
+
+.orbB {
+  width: min(36vw, 24rem);
+  height: min(36vw, 24rem);
+  right: 8%;
+  bottom: 8%;
+  background: rgba(61, 126, 255, 0.14);
+}
+
+.grid {
+  position: absolute;
+  inset: 0;
+  opacity: 0.045;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.5) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.5) 1px, transparent 1px);
+  background-size: 72px 72px;
+  mask-image: radial-gradient(ellipse at center, black 20%, transparent 75%);
+}
+
+.noise {
+  position: absolute;
+  inset: 0;
+  opacity: 0.04;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}

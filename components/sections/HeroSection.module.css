@@ -1,0 +1,115 @@
+.hero {
+  position: relative;
+  z-index: 1;
+  min-height: 100dvh;
+  padding: calc(var(--header-h) + 2.5rem) 0 4rem;
+  display: flex;
+  align-items: flex-end;
+}
+
+.grid {
+  width: 100%;
+  display: grid;
+  gap: 2rem;
+  align-items: end;
+}
+
+.copy {
+  max-width: 34rem;
+  position: relative;
+  z-index: 2;
+}
+
+.title {
+  margin: 0 0 1rem;
+  font-family: var(--font-display);
+  font-size: clamp(2.8rem, 8vw, 5rem);
+  font-weight: 600;
+  line-height: 0.98;
+  letter-spacing: -0.04em;
+}
+
+.subtitle {
+  margin: 0;
+  font-size: clamp(1.05rem, 2vw, 1.25rem);
+  color: var(--color-text-muted);
+  max-width: 30ch;
+  line-height: 1.5;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 2rem;
+}
+
+.mobileStage {
+  position: relative;
+  width: 100%;
+  min-height: 58vh;
+  border-radius: 1.25rem;
+  overflow: hidden;
+  background: #000;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.mobileImage {
+  object-fit: contain;
+}
+
+.mobileFade {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 55%, rgba(0, 0, 0, 0.55));
+  pointer-events: none;
+}
+
+.scrollHint {
+  position: absolute;
+  left: 50%;
+  bottom: 1.25rem;
+  transform: translateX(-50%);
+  z-index: 2;
+}
+
+.scrollHint span {
+  display: block;
+  width: 1px;
+  height: 2.5rem;
+  background: linear-gradient(180deg, rgba(43, 184, 232, 0.8), transparent);
+  animation: pulse 2.2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 0.25;
+    transform: scaleY(0.7);
+  }
+  50% {
+    opacity: 1;
+    transform: scaleY(1);
+  }
+}
+
+@media (min-width: 960px) {
+  .hero {
+    align-items: center;
+    padding-right: min(52vw, 44rem);
+  }
+
+  .mobileStage {
+    display: none;
+  }
+
+  .scrollHint {
+    left: calc((100% - min(52vw, 44rem)) / 2);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scrollHint span {
+    animation: none;
+  }
+}

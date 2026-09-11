@@ -1,0 +1,45 @@
+.root {
+  position: absolute;
+  inset: 0;
+  background: #000;
+}
+
+.image {
+  object-fit: contain;
+  object-position: center;
+}
+
+.vignette {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse at center, transparent 42%, rgba(0, 0, 0, 0.45) 100%),
+    linear-gradient(180deg, transparent 70%, rgba(5, 11, 20, 0.55) 100%);
+}
+
+.meta {
+  position: absolute;
+  left: var(--space-5);
+  bottom: var(--space-5);
+  right: var(--space-5);
+  z-index: 1;
+}
+
+.label {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-text);
+  text-shadow: 0 1px 12px rgba(0, 0, 0, 0.8);
+}
+
+.hint {
+  margin: var(--space-1) 0 0;
+  font-size: 0.8rem;
+  color: rgba(242, 246, 250, 0.7);
+  text-shadow: 0 1px 10px rgba(0, 0, 0, 0.8);
+}

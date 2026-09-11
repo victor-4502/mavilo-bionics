@@ -1,31 +1,33 @@
-# Mavilo Bionics — Website
+# MAVILO Bionics — mavilobionics.com
 
-Public site for **https://mavilobionics.com**
+Public website for [MAVILO Bionics](https://mavilobionics.com). Next.js product experience (photos now; GLB when ready).
 
-## Local preview
+## Run locally
 
-```powershell
-cd website
-python -m http.server 8080
+```bash
+npm install
+npm run dev
 ```
 
-## Deploy
+Open [http://localhost:3000](http://localhost:3000).
 
-This folder is mirrored to the public repo `victor-4502/mavilo-bionics`, which Vercel deploys to `mavilobionics.com`.
+## Build
 
-After editing here, push to `mavilo-bionics` to update the live site.
+```bash
+npm run build
+npm start
+```
 
-## Google Search Console
+## Stack
 
-To appear in Google:
+- Next.js 15 App Router + TypeScript
+- React Three Fiber + Three.js + Drei
+- GSAP + ScrollTrigger
+- Geist Sans + Space Grotesk
+- ES / EN i18n
 
-1. Go to https://search.google.com/search-console
-2. Add property: `https://mavilobionics.com`
-3. Verify via DNS (recommended) or HTML file
-4. Submit sitemap: `https://mavilobionics.com/sitemap.xml`
+## Notes
 
-Indexing can take a few days for new sites.
-
-## Privacy policy (Play Store)
-
-https://victor-4502.github.io/mavilo-ara-1-privacy/
+- Product images: `public/images/product/`
+- GLB contract: `lib/glb-contract.ts` (`public/models/` when assets land)
+- Vercel should use this repo root as the project root

@@ -1,0 +1,11 @@
+.canvasHost,
+.fallback {
+  position: absolute;
+  inset: 0;
+}
+
+.canvasHost canvas {
+  display: block;
+  width: 100% !important;
+  height: 100% !important;
+}

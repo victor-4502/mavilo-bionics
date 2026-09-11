@@ -1,0 +1,15 @@
+.shell {
+  position: relative;
+  z-index: 2;
+}
+
+.main {
+  position: relative;
+}
+
+@media (min-width: 960px) {
+  .shell :global(footer) {
+    width: calc(100% - min(52vw, 44rem));
+  }
+}
+
