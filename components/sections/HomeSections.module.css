@@ -1,0 +1,390 @@
+.section {
+  padding: var(--section-y) 0;
+  background: #050b14;
+}
+
+.sectionBleed {
+  position: relative;
+  min-height: min(92dvh, 56rem);
+  display: grid;
+  align-items: end;
+  overflow: hidden;
+  background: #050b14;
+}
+
+.fullMedia {
+  position: absolute;
+  inset: 0;
+}
+
+.overlayCopy {
+  position: relative;
+  z-index: 1;
+  padding-bottom: clamp(3rem, 8vh, 5rem);
+  max-width: 36rem;
+  background: linear-gradient(
+    180deg,
+    transparent 0%,
+    rgba(5, 11, 20, 0.55) 35%,
+    rgba(5, 11, 20, 0.92) 100%
+  );
+  padding-top: 8rem;
+}
+
+.split {
+  display: grid;
+  grid-template-columns: 1fr 1.15fr;
+  gap: clamp(1.5rem, 4vw, 3.5rem);
+  align-items: center;
+}
+
+.copyBlock {
+  max-width: 34rem;
+}
+
+.lead,
+.leadCenter,
+.about {
+  max-width: 40rem;
+  margin-bottom: clamp(2rem, 5vh, 3.5rem);
+}
+
+.leadCenter {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+.about {
+  margin-bottom: 0;
+}
+
+.h2 {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: var(--fs-h2);
+  font-weight: 560;
+  line-height: var(--lh-tight);
+  letter-spacing: var(--track-display);
+}
+
+.body,
+.bodyNarrow {
+  margin: 1rem 0 0;
+  color: var(--color-text-muted);
+  font-size: var(--fs-lead);
+}
+
+.bodyNarrow {
+  max-width: 38rem;
+}
+
+.mediaPanel,
+.stillPanel,
+.mediaWide,
+.heroStill {
+  position: relative;
+  overflow: hidden;
+  background: #0a121c;
+  border: 1px solid var(--color-line);
+}
+
+.mediaPanel,
+.stillPanel {
+  aspect-ratio: 4 / 3;
+}
+
+.mediaWide {
+  aspect-ratio: 16 / 9;
+  margin-bottom: clamp(2rem, 5vh, 3rem);
+}
+
+.heroStill {
+  aspect-ratio: 16 / 10;
+  margin-bottom: clamp(1.25rem, 3vw, 2rem);
+}
+
+.heroStill img,
+.stillPanel img,
+.gallery img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.75rem;
+  margin-bottom: clamp(1.75rem, 4vw, 2.75rem);
+}
+
+.gallery figure {
+  margin: 0;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  border: 1px solid var(--color-line);
+  background: #0a121c;
+}
+
+.traits {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.85rem 1.5rem;
+  border-top: 1px solid var(--color-line);
+  padding-top: 1.5rem;
+}
+
+.traits li {
+  color: var(--color-text-muted);
+  font-size: 0.95rem;
+  padding-left: 0.9rem;
+  position: relative;
+}
+
+.traits li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.55em;
+  width: 0.35rem;
+  height: 0.35rem;
+  border-radius: 50%;
+  background: var(--color-cyan);
+}
+
+.engList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0;
+  border-top: 1px solid var(--color-line);
+}
+
+.engItem {
+  display: grid;
+  grid-template-columns: 3.5rem 1fr;
+  gap: 1rem;
+  padding: 1.25rem 0;
+  border-bottom: 1px solid var(--color-line);
+}
+
+.engIndex {
+  font-family: var(--font-display);
+  color: var(--color-cyan);
+  letter-spacing: 0.08em;
+}
+
+.engTitle {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-weight: 560;
+}
+
+.engBody {
+  margin: 0.35rem 0 0;
+  color: var(--color-text-muted);
+}
+
+.signalWrap {
+  max-width: 42rem;
+}
+
+.signalChain {
+  list-style: none;
+  margin: 2rem auto 0;
+  padding: 0;
+  display: grid;
+  gap: 0.35rem;
+  justify-items: center;
+}
+
+.signalStep {
+  display: grid;
+  justify-items: center;
+  gap: 0.35rem;
+}
+
+.signalLabel {
+  font-family: var(--font-display);
+  font-size: clamp(1.1rem, 2.4vw, 1.45rem);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-text);
+}
+
+.signalArrow {
+  color: var(--color-text-subtle);
+  font-size: 1rem;
+  line-height: 1;
+}
+
+.plainList {
+  list-style: none;
+  margin: 1.5rem 0 0;
+  padding: 0;
+  display: grid;
+  gap: 0.65rem;
+}
+
+.plainList li {
+  color: var(--color-text-muted);
+  padding-left: 0.9rem;
+  position: relative;
+}
+
+.plainList li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.55em;
+  width: 0.35rem;
+  height: 0.35rem;
+  border-radius: 50%;
+  background: var(--color-blue);
+}
+
+.clinicGrid {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.clinicGrid li {
+  padding: 1.25rem 0;
+  border-top: 1px solid var(--color-line);
+}
+
+.clinicIndex {
+  display: block;
+  margin-bottom: 0.65rem;
+  font-family: var(--font-display);
+  color: var(--color-cyan);
+  letter-spacing: 0.08em;
+  font-size: 0.85rem;
+}
+
+.clinicGrid p {
+  margin: 0;
+  color: var(--color-text-muted);
+}
+
+.human {
+  padding: clamp(4rem, 12vh, 7rem) 0;
+  border-block: 1px solid var(--color-line);
+  background: #070f1a;
+}
+
+.humanLine {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 3.5vw, 2.35rem);
+  line-height: 1.2;
+  letter-spacing: var(--track-display);
+  max-width: 28rem;
+}
+
+.humanLine + .humanLine {
+  margin-top: 0.75rem;
+  color: var(--color-text-muted);
+}
+
+.final {
+  position: relative;
+  min-height: min(88dvh, 52rem);
+  display: grid;
+  align-items: end;
+  overflow: hidden;
+}
+
+.finalMedia {
+  position: absolute;
+  inset: 0;
+}
+
+.finalImage {
+  object-fit: cover;
+  object-position: center;
+}
+
+.finalVeil {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(5, 11, 20, 0.25) 0%,
+    rgba(5, 11, 20, 0.55) 45%,
+    rgba(5, 11, 20, 0.94) 100%
+  );
+}
+
+.finalCopy {
+  position: relative;
+  z-index: 1;
+  padding-bottom: clamp(3.5rem, 9vh, 6rem);
+  max-width: 36rem;
+}
+
+.finalTitle {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 5vw, 3.25rem);
+  letter-spacing: var(--track-display);
+  line-height: var(--lh-tight);
+}
+
+.finalBody {
+  margin: 0.85rem 0 0;
+  color: var(--color-text-muted);
+  font-size: var(--fs-lead);
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+}
+
+.email {
+  display: inline-block;
+  margin-top: 1.25rem;
+  color: var(--color-cyan);
+  font-size: 0.95rem;
+}
+
+.email:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 960px) {
+  .split {
+    grid-template-columns: 1fr;
+  }
+
+  .gallery,
+  .traits,
+  .clinicGrid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .gallery,
+  .traits,
+  .clinicGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .sectionBleed {
+    min-height: 78dvh;
+  }
+}

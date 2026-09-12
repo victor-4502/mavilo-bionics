@@ -1,15 +1,9 @@
 .shell {
   position: relative;
-  z-index: 2;
+  min-height: 100dvh;
+  background: #050b14;
 }
 
 .main {
-  position: relative;
+  display: block;
 }
-
-@media (min-width: 960px) {
-  .shell :global(footer) {
-    width: calc(100% - min(52vw, 44rem));
-  }
-}
-

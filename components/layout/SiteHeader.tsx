@@ -8,9 +8,11 @@ import { useLocale } from "@/lib/locale";
 import styles from "./SiteHeader.module.css";
 
 const NAV = [
-  { href: "#mano", key: "product" as const },
-  { href: "#senal", key: "technology" as const },
-  { href: "#ecosistema", key: "application" as const },
+  { href: "#mav1", key: "mav1" as const },
+  { href: "#tecnologia", key: "technology" as const },
+  { href: "#ecosistema", key: "ecosystem" as const },
+  { href: "#clinicas", key: "clinics" as const },
+  { href: "#empresa", key: "mavilo" as const },
   { href: "#contacto", key: "contact" as const },
 ];
 
@@ -70,6 +72,9 @@ export function SiteHeader() {
 
         <div className={styles.actions}>
           <LangSwitch />
+          <a className={styles.contactCta} href="#contacto">
+            {t.nav.contact}
+          </a>
           <button
             type="button"
             className={styles.menuBtn}
@@ -88,11 +93,7 @@ export function SiteHeader() {
         id={panelId}
         hidden={!open}
       >
-        <div
-          className={styles.backdrop}
-          onClick={close}
-          aria-hidden
-        />
+        <div className={styles.backdrop} onClick={close} aria-hidden />
         <nav className={styles.drawerPanel} aria-label="Mobile">
           {NAV.map((item) => (
             <a key={item.href} href={item.href} onClick={close}>

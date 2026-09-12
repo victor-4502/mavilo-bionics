@@ -59,6 +59,24 @@
   gap: var(--space-3);
 }
 
+.contactCta {
+  display: none;
+  padding: 0.45rem 0.9rem;
+  border: 1px solid rgba(43, 184, 232, 0.35);
+  border-radius: 0.35rem;
+  font-size: 0.85rem;
+  font-weight: 560;
+  color: var(--color-text);
+  transition:
+    border-color var(--dur-fast) var(--ease-out),
+    color var(--dur-fast) var(--ease-out);
+}
+
+.contactCta:hover {
+  border-color: var(--color-cyan);
+  color: var(--color-cyan);
+}
+
 .menuBtn {
   display: inline-flex;
   align-items: center;
@@ -170,9 +188,13 @@
   color: var(--color-cyan);
 }
 
-@media (min-width: 900px) {
+@media (min-width: 960px) {
   .nav {
     display: flex;
+  }
+
+  .contactCta {
+    display: inline-flex;
   }
 
   .menuBtn {

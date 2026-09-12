@@ -2,134 +2,152 @@ import type { HomeContent } from "../types";
 
 const en: HomeContent = {
   meta: {
-    title: "Mavilo Bionics — Bionic engineering",
+    title: "MAVILO Bionics — Mexican bionic engineering",
     description:
-      "Mavilo Bionics builds Mav 1, a precision bionic hand. Mexican engineering applied to human mobility.",
+      "MAVILO Bionics develops MAV 1, a myoelectric hand prosthesis. Mexican engineering: mechanical design, control, electronics, and software in one product ecosystem.",
   },
   nav: {
-    product: "Product",
+    mav1: "MAV 1",
     technology: "Technology",
-    application: "Application",
+    ecosystem: "Ecosystem",
+    clinics: "Clinics",
+    mavilo: "MAVILO",
     contact: "Contact",
     openMenu: "Open menu",
     closeMenu: "Close menu",
     home: "Home",
   },
   hero: {
-    eyebrow: "Mav 1",
-    title: "Motion with precision.",
-    subtitle:
-      "Mexican bionic engineering. A hand designed to feel like a product — not a clinical template.",
-    ctaPrimary: "Discover Mav 1",
-    ctaSecondary: "Talk to us",
+    brand: "MAV 1",
+    title: "Movement with precision.",
+    subtitle: "Myoelectric hand prosthesis. Mexican engineering.",
+    ctaPrimary: "Discover MAV 1",
+    ctaSecondary: "Talk to MAVILO",
+    videoLabel: "MAV 1 — palm view",
   },
-  mavilo: {
-    eyebrow: "MAVILO",
+  intro: {
+    brand: "MAVILO",
     title: "Mexican engineering applied to human mobility.",
-    body: "We design and build bionic systems with mechanical rigor, myoelectric control, and a clear user experience. The product comes first: tangible precision, not abstract promises.",
+    body: "We develop bionic systems that integrate mechanical design, myoelectric control, electronics, and software into a single product ecosystem.",
+    videoLabel: "MAVILO branding detail on MAV 1",
   },
-  hand: {
+  product: {
     eyebrow: "The hand",
     title: "Architecture built for the gesture.",
-    body: "Silhouette, scale, and mechanisms aligned in one assembly. Technical polymers, precise geometry, and a construction meant for coordinated open and close motion.",
-    specs: [
-      { label: "Material", value: "Technical polymer · carbon fiber" },
-      { label: "Gesture", value: "Coordinated open / close" },
-      { label: "Detail", value: "Textured pads · mechanical pivots" },
+    body: "MAV 1 is a myoelectric prosthesis with coordinated opening and closing. Technical polymers, carbon-fiber elements, mechanical pivots, and textured contact pads — built as a physical device, not a promise.",
+    traits: [
+      "Myoelectric control",
+      "Coordinated open / close",
+      "Four actuated fingers",
+      "Articulated thumb",
+      "Technical polymer and carbon fiber",
+      "Calibration through the connected ecosystem",
+    ],
+    palmAlt: "MAV 1 palm view, fingers open",
+    sideAlt: "MAV 1 side profile",
+    dorsalAlt: "MAV 1 dorsal view with embossed brand",
+    detailAlt: "Embossed Mavilo Bionics mark on the shell",
+  },
+  movement: {
+    eyebrow: "Movement",
+    title: "Coordinated movement.",
+    body: "Designed around controlled mechanical motion: predictable opening and closing, without invented grasp patterns.",
+    videoLabel: "MAV 1 — controlled gesture",
+  },
+  closing: {
+    eyebrow: "Control",
+    title: "From signal to movement.",
+    body: "A calibrated muscle signal becomes a coordinated hand close.",
+    videoLabel: "MAV 1 — coordinated close",
+  },
+  engineering: {
+    eyebrow: "Engineering",
+    title: "Designed from the inside out.",
+    body: "A clear reading of the real assembly architecture.",
+    videoLabel: "MAV 1 — dorsal view",
+    items: [
+      {
+        index: "01",
+        title: "Structure",
+        body: "Shell and protective volume that define the hand silhouette.",
+      },
+      {
+        index: "02",
+        title: "Fingers",
+        body: "Four fingers sharing a common mechanism for coordinated close.",
+      },
+      {
+        index: "03",
+        title: "Mechanism",
+        body: "Linkages and pivots that transmit the flexion gesture.",
+      },
+      {
+        index: "04",
+        title: "Thumb",
+        body: "Articulated subset integrated into open and close motion.",
+      },
+      {
+        index: "05",
+        title: "Base",
+        body: "Interface between each finger and the palm structure.",
+      },
     ],
   },
   signal: {
     eyebrow: "System",
-    title: "From signal to motion.",
-    steps: [
-      {
-        label: "Signal",
-        body: "Muscle activity is captured and filtered to guide control.",
-      },
-      {
-        label: "Processing",
-        body: "The system interprets the user’s calibrated threshold.",
-      },
-      {
-        label: "Control",
-        body: "Prosthesis logic decides when to open or close.",
-      },
-      {
-        label: "Motion",
-        body: "The fingers respond in a coordinated, predictable gesture.",
-      },
-    ],
-  },
-  explore: {
-    eyebrow: "Explore",
-    title: "Physical architecture.",
-    body: "Walk through the shell, fingers, linkage, thumb, and base — only real assembly components.",
-    hotspots: {
-      palm: {
-        title: "Structure",
-        body: "Shell and cover that define the protective volume of the hand.",
-      },
-      finger: {
-        title: "Fingers",
-        body: "Four fingers sharing a common mechanism for coordinated closing.",
-      },
-      linkage: {
-        title: "Mechanism",
-        body: "Finger links that transmit the flexion gesture.",
-      },
-      thumb: {
-        title: "Thumb",
-        body: "Thumb subassembly integrated into open and close motion.",
-      },
-      fingerBase: {
-        title: "Base",
-        body: "Interface between each finger and the palm structure.",
-      },
-    },
-  },
-  movement: {
-    eyebrow: "Motion",
-    title: "Open and close.",
-    body: "The product gesture is coordinated: four fingers open and close together. No invented grasp patterns.",
-    open: "Open",
-    close: "Close",
-    scaffoldNote: "Scaffold — controls will activate with the 3D model.",
-    scrollCue: "Scroll — the image shifts from open to profile.",
-  },
-  engineering: {
-    eyebrow: "Engineering",
-    title: "Inside, by groups.",
-    body: "A technical reading of the architecture: palm and cover, each finger, thumb, and linkages — without exploding what the model does not contain.",
+    title: "Signal that becomes control.",
+    body: "The system interprets myoelectric signals and translates them into controlled prosthetic movement.",
+    steps: ["Signal", "EMG", "Processing", "Control", "Movement"],
   },
   ecosystem: {
     eyebrow: "Ecosystem",
-    title: "Calibration, app, and support.",
-    body: "Mav 1 pairs with a mobile app for safe, clear myoelectric threshold calibration — built for daily use and clinical workflow.",
+    title: "A system, not just a hand.",
+    body: "MAV 1 connects to an application for muscle-signal visualization, threshold calibration, and a connected workflow between device and clinic.",
     points: [
-      "Live muscle signal during calibration",
-      "Calibration mode that keeps the hand locked",
-      "Threshold retained on the prosthesis",
-      "Accounts and devices designed for clinical teams",
+      "Muscle signal visualization",
+      "Safe threshold calibration",
+      "Device configuration",
+      "Connected daily and clinical workflow",
     ],
   },
-  contact: {
-    eyebrow: "Contact",
-    title: "Let’s build the next movement.",
-    body: "Whether you are a user, clinic, or collaborator — write to us. We want precise conversations about Mav 1 and what comes next.",
+  clinics: {
+    eyebrow: "Clinics",
+    title: "Technology that also respects clinical process.",
+    body: "Built around device identification, user management, calibration, and configuration in a connected workflow.",
+    points: [
+      "Device identification",
+      "User management",
+      "In-clinic calibration",
+      "Configuration and support",
+    ],
+  },
+  human: {
+    line1: "Technology to recover movement.",
+    line2: "Engineering to restore autonomy.",
+  },
+  about: {
+    eyebrow: "MAVILO",
+    title: "Mexican bionics.",
+    body: "MAVILO Bionics is a Mexican company developing prosthetic technology: mechanical engineering, electronics, and software focused on human mobility.",
+  },
+  cta: {
+    title: "Movement with precision.",
+    body: "Meet MAVILO Bionics.",
+    primary: "Contact MAVILO",
+    secondary: "Discover MAV 1",
     email: "contacto@mavilobionics.com",
-    cta: "Send email",
-    audiences: ["Users", "Clinics", "Collaborators", "General inquiry"],
+    imageAlt: "MAV 1 — product photography",
   },
   footer: {
-    tagline: "Bionics with human purpose.",
+    tagline: "Mexican bionic engineering.",
     privacy: "Privacy policy",
     rights: "All rights reserved.",
   },
   three: {
-    placeholderLabel: "Mav 1",
-    placeholderHint: "Scene ready for hand-hero.glb",
-    productAlt: "Mavilo Mav 1 bionic hand",
-    productHint: "Product photography · 3D model will live here",
+    placeholderLabel: "MAV 1",
+    placeholderHint: "Product photography and video",
+    productAlt: "MAVILO MAV 1 bionic hand",
+    productHint: "Real product photography",
   },
 };
 

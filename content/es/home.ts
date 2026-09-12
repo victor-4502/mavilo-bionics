@@ -2,134 +2,152 @@ import type { HomeContent } from "../types";
 
 const es: HomeContent = {
   meta: {
-    title: "Mavilo Bionics — Ingeniería biónica",
+    title: "MAVILO Bionics — Ingeniería biónica mexicana",
     description:
-      "Mavilo Bionics desarrolla Mav 1, una mano biónica de precisión. Ingeniería mexicana aplicada a la movilidad humana.",
+      "MAVILO Bionics desarrolla MAV 1, una prótesis mioeléctrica de mano. Ingeniería mexicana: diseño mecánico, control, electrónica y software en un solo ecosistema.",
   },
   nav: {
-    product: "Producto",
+    mav1: "MAV 1",
     technology: "Tecnología",
-    application: "Aplicación",
+    ecosystem: "Ecosistema",
+    clinics: "Clínicas",
+    mavilo: "MAVILO",
     contact: "Contacto",
     openMenu: "Abrir menú",
     closeMenu: "Cerrar menú",
     home: "Inicio",
   },
   hero: {
-    eyebrow: "Mav 1",
+    brand: "MAV 1",
     title: "Movimiento con precisión.",
-    subtitle:
-      "Ingeniería biónica mexicana. Una mano diseñada para sentir como producto, no como plantilla clínica.",
-    ctaPrimary: "Conocer Mav 1",
-    ctaSecondary: "Hablar con nosotros",
+    subtitle: "Prótesis mioeléctrica de mano. Ingeniería mexicana.",
+    ctaPrimary: "Conoce MAV 1",
+    ctaSecondary: "Habla con MAVILO",
+    videoLabel: "MAV 1 — vista de palma",
   },
-  mavilo: {
-    eyebrow: "MAVILO",
+  intro: {
+    brand: "MAVILO",
     title: "Ingeniería mexicana aplicada a la movilidad humana.",
-    body: "Diseñamos y construimos sistemas biónicos con rigor mecánico, control mioeléctrico y una experiencia de uso clara. El centro es el producto: precisión tangible, no promesas abstractas.",
+    body: "Desarrollamos sistemas biónicos que integran diseño mecánico, control mioeléctrico, electrónica y software en un solo ecosistema de producto.",
+    videoLabel: "Detalle de marca MAVILO en MAV 1",
   },
-  hand: {
+  product: {
     eyebrow: "La mano",
     title: "Arquitectura pensada para el gesto.",
-    body: "Silueta, escala y mecanismos alineados en un solo ensamble. Polímeros técnicos, geometría precisa y una construcción pensada para el movimiento coordinado de apertura y cierre.",
-    specs: [
-      { label: "Material", value: "Polímero técnico · carbon fiber" },
-      { label: "Gesto", value: "Apertura / cierre coordinado" },
-      { label: "Detalle", value: "Pads texturizados · pivotes mecánicos" },
+    body: "MAV 1 es una prótesis mioeléctrica con apertura y cierre coordinados. Polímeros técnicos, elementos de fibra de carbono, pivotes mecánicos y pads de contacto texturizados — construida como un dispositivo físico, no como una promesa.",
+    traits: [
+      "Control mioeléctrico",
+      "Apertura y cierre coordinados",
+      "Cuatro dedos actuados",
+      "Pulgar articulado",
+      "Polímero técnico y fibra de carbono",
+      "Calibración en el ecosistema conectado",
+    ],
+    palmAlt: "MAV 1 vista de palma, dedos abiertos",
+    sideAlt: "MAV 1 perfil lateral",
+    dorsalAlt: "MAV 1 vista dorsal con marca embosada",
+    detailAlt: "Detalle embosado Mavilo Bionics en la carcasa",
+  },
+  movement: {
+    eyebrow: "Movimiento",
+    title: "Movimiento coordinado.",
+    body: "Diseñada alrededor de un gesto mecánico controlado: apertura y cierre predecibles, sin patrones inventados.",
+    videoLabel: "MAV 1 — gesto controlado",
+  },
+  closing: {
+    eyebrow: "Control",
+    title: "De la señal al movimiento.",
+    body: "La señal muscular calibrada se convierte en un cierre coordinado de la mano.",
+    videoLabel: "MAV 1 — cierre coordinado",
+  },
+  engineering: {
+    eyebrow: "Ingeniería",
+    title: "Diseñada desde dentro hacia fuera.",
+    body: "Una lectura clara de la arquitectura real del ensamble.",
+    videoLabel: "MAV 1 — vista dorsal",
+    items: [
+      {
+        index: "01",
+        title: "Estructura",
+        body: "Carcasa y volumen protector que definen la silueta de la mano.",
+      },
+      {
+        index: "02",
+        title: "Dedos",
+        body: "Cuatro dedos con mecanismo común para un cierre coordinado.",
+      },
+      {
+        index: "03",
+        title: "Mecanismo",
+        body: "Eslabones y pivotes que transmiten el gesto de flexión.",
+      },
+      {
+        index: "04",
+        title: "Pulgar",
+        body: "Subconjunto articulado integrado al gesto de apertura y cierre.",
+      },
+      {
+        index: "05",
+        title: "Base",
+        body: "Interfaz entre cada dedo y la estructura de la palma.",
+      },
     ],
   },
   signal: {
     eyebrow: "Sistema",
-    title: "De la señal al movimiento.",
-    steps: [
-      {
-        label: "Señal",
-        body: "La actividad muscular se captura y filtra para orientar el control.",
-      },
-      {
-        label: "Procesamiento",
-        body: "El sistema interpreta el umbral calibrado del usuario.",
-      },
-      {
-        label: "Control",
-        body: "La lógica de la prótesis decide cuándo abrir o cerrar.",
-      },
-      {
-        label: "Movimiento",
-        body: "Los dedos responden en un gesto coordinado y predecible.",
-      },
-    ],
-  },
-  explore: {
-    eyebrow: "Explora",
-    title: "Arquitectura física.",
-    body: "Recorre la carcasa, los dedos, el mecanismo, el pulgar y la base. Solo componentes reales del ensamble.",
-    hotspots: {
-      palm: {
-        title: "Estructura",
-        body: "Carcasa y tapa que definen el volumen protector de la mano.",
-      },
-      finger: {
-        title: "Dedos",
-        body: "Cuatro dedos con mecanismo común para un cierre coordinado.",
-      },
-      linkage: {
-        title: "Mecanismo",
-        body: "Eslabones del dedo que transmiten el gesto de flexión.",
-      },
-      thumb: {
-        title: "Pulgar",
-        body: "Subconjunto del pulgar integrado al gesto de apertura y cierre.",
-      },
-      fingerBase: {
-        title: "Base",
-        body: "Interfaz entre cada dedo y la estructura de la palma.",
-      },
-    },
-  },
-  movement: {
-    eyebrow: "Movimiento",
-    title: "Apertura y cierre.",
-    body: "El gesto de producto es coordinado: los cuatro dedos se abren y se cierran juntos. Sin patrones de agarre inventados.",
-    open: "Abrir",
-    close: "Cerrar",
-    scaffoldNote: "Scaffold — los controles se activarán con el modelo 3D.",
-    scrollCue: "Scroll — la imagen cambia de abierta a perfil.",
-  },
-  engineering: {
-    eyebrow: "Ingeniería",
-    title: "Por dentro, por grupos.",
-    body: "Una lectura técnica de la arquitectura: palma y tapa, cada dedo, pulgar y mecanismos — sin desmontar lo que no existe en el modelo.",
+    title: "Señal que se convierte en control.",
+    body: "El sistema interpreta señales mioeléctricas y las traduce en movimiento controlado de la prótesis.",
+    steps: ["Señal", "EMG", "Procesamiento", "Control", "Movimiento"],
   },
   ecosystem: {
     eyebrow: "Ecosistema",
-    title: "Calibración, app y acompañamiento.",
-    body: "Mav 1 se integra con una aplicación móvil para calibrar el umbral mioeléctrico con seguridad y claridad, pensada para el uso diario y el flujo en clínica.",
+    title: "Un sistema, no solo una mano.",
+    body: "MAV 1 se integra con una aplicación para visualizar la señal muscular, calibrar el umbral y operar un flujo conectado entre dispositivo y clínica.",
     points: [
-      "Señal muscular en vivo durante la calibración",
-      "Modo de calibración que mantiene la mano bloqueada",
-      "Umbral que permanece en la prótesis",
-      "Cuentas y dispositivos pensados para equipos clínicos",
+      "Visualización de la señal muscular",
+      "Calibración segura del umbral",
+      "Configuración del dispositivo",
+      "Flujo conectado para uso diario y clínico",
     ],
   },
-  contact: {
-    eyebrow: "Contacto",
-    title: "Construyamos el siguiente movimiento.",
-    body: "Si eres usuario, clínica o colaborador, escríbenos. Queremos conversaciones precisas sobre Mav 1 y lo que viene.",
+  clinics: {
+    eyebrow: "Clínicas",
+    title: "Tecnología que también piensa en el proceso clínico.",
+    body: "Pensado para identificación de dispositivos, gestión de usuarios, calibración y configuración en un flujo conectado.",
+    points: [
+      "Identificación del dispositivo",
+      "Gestión de usuarios",
+      "Calibración en consulta",
+      "Configuración y acompañamiento",
+    ],
+  },
+  human: {
+    line1: "Tecnología para recuperar movimiento.",
+    line2: "Ingeniería para devolver autonomía.",
+  },
+  about: {
+    eyebrow: "MAVILO",
+    title: "Biónica mexicana.",
+    body: "MAVILO Bionics es una empresa mexicana que desarrolla tecnología protésica: ingeniería mecánica, electrónica y software orientados a la movilidad humana.",
+  },
+  cta: {
+    title: "Movimiento con precisión.",
+    body: "Conoce MAVILO Bionics.",
+    primary: "Contactar a MAVILO",
+    secondary: "Conocer MAV 1",
     email: "contacto@mavilobionics.com",
-    cta: "Enviar correo",
-    audiences: ["Usuarios", "Clínicas", "Colaboradores", "Consulta general"],
+    imageAlt: "MAV 1 — fotografía de producto",
   },
   footer: {
-    tagline: "Biónica con propósito humano.",
+    tagline: "Ingeniería biónica mexicana.",
     privacy: "Política de privacidad",
     rights: "Todos los derechos reservados.",
   },
   three: {
-    placeholderLabel: "Mav 1",
-    placeholderHint: "Escena lista para hand-hero.glb",
-    productAlt: "Mano biónica Mavilo Mav 1",
-    productHint: "Fotografía de producto · el modelo 3D se integrará aquí",
+    placeholderLabel: "MAV 1",
+    placeholderHint: "Fotografía y video de producto",
+    productAlt: "Mano biónica MAVILO MAV 1",
+    productHint: "Fotografía de producto real",
   },
 };
 

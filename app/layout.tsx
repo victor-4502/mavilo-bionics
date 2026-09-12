@@ -13,42 +13,53 @@ const spaceGrotesk = Space_Grotesk({
 export const metadata: Metadata = {
   metadataBase: new URL("https://mavilobionics.com"),
   title: {
-    default: "Mavilo Bionics — Ingeniería biónica",
-    template: "%s · Mavilo Bionics",
+    default: "MAVILO Bionics — Ingeniería biónica mexicana",
+    template: "%s · MAVILO Bionics",
   },
   description:
-    "Mavilo Bionics desarrolla Mav 1, una mano biónica de precisión. Ingeniería mexicana aplicada a la movilidad humana.",
-  applicationName: "Mavilo Bionics",
-  authors: [{ name: "Mavilo Bionics" }],
+    "MAVILO Bionics desarrolla MAV 1, una prótesis mioeléctrica de mano. Ingeniería mexicana: mecánica, control, electrónica y software.",
+  applicationName: "MAVILO Bionics",
+  authors: [{ name: "MAVILO Bionics" }],
   openGraph: {
     type: "website",
     locale: "es_MX",
     alternateLocale: ["en_US"],
     url: "https://mavilobionics.com",
-    siteName: "Mavilo Bionics",
-    title: "Mavilo Bionics — Ingeniería biónica",
+    siteName: "MAVILO Bionics",
+    title: "MAVILO Bionics — Ingeniería biónica mexicana",
     description:
-      "Mav 1: mano biónica de precisión. Ingeniería mexicana aplicada a la movilidad humana.",
+      "MAV 1: prótesis mioeléctrica de mano. Ingeniería mexicana aplicada a la movilidad humana.",
     images: [
       {
         url: "/images/og/og-default.jpg",
         width: 1200,
         height: 1200,
-        alt: "Mavilo Mav 1 bionic hand",
+        alt: "MAVILO MAV 1 bionic hand",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Mavilo Bionics",
+    title: "MAVILO Bionics",
     description:
-      "Mav 1: mano biónica de precisión. Ingeniería mexicana aplicada a la movilidad humana.",
+      "MAV 1: prótesis mioeléctrica de mano. Ingeniería mexicana aplicada a la movilidad humana.",
     images: ["/images/og/og-default.jpg"],
   },
   robots: {
     index: true,
     follow: true,
   },
+};
+
+const organizationJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: "MAVILO Bionics",
+  url: "https://mavilobionics.com",
+  email: "contacto@mavilobionics.com",
+  logo: "https://mavilobionics.com/images/brand/mavilo_logo.png",
+  description:
+    "Mexican bionics company developing the MAV 1 myoelectric prosthetic hand.",
 };
 
 export const viewport: Viewport = {
@@ -65,6 +76,12 @@ export default function RootLayout({
   return (
     <html lang="es" className={`${spaceGrotesk.variable} ${GeistSans.variable}`}>
       <body className={GeistSans.className}>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(organizationJsonLd),
+          }}
+        />
         <LocaleProvider>
           <a className="skip-link" href="#hero">
             Skip to content

@@ -2,20 +2,20 @@
 
 import { SiteFooter } from "@/components/layout/SiteFooter";
 import { SiteHeader } from "@/components/layout/SiteHeader";
-import { Atmosphere } from "@/components/experience/Atmosphere";
-import { ScrollDirector } from "@/components/experience/ScrollDirector";
-import { StickyProductStage } from "@/components/experience/StickyProductStage";
 import { HeroSection } from "@/components/sections/HeroSection";
 import {
-  ContactSection,
+  AboutSection,
+  ClinicsSection,
+  ClosingSection,
   EcosystemSection,
   EngineeringSection,
-  ExploreSection,
-  HandSection,
-  MaviloSection,
+  FinalCtaSection,
+  HumanSection,
+  IntroSection,
   MovementSection,
+  ProductSection,
   SignalSection,
-} from "@/components/sections/Sections";
+} from "@/components/sections/HomeSections";
 import { useLocale } from "@/lib/locale";
 import { useEffect } from "react";
 import styles from "./page.module.css";
@@ -39,21 +39,21 @@ export default function HomePage() {
   return (
     <>
       <DocumentMeta />
-      <Atmosphere />
-      <StickyProductStage />
-      <ScrollDirector />
       <div className={styles.shell}>
         <SiteHeader />
         <main className={styles.main}>
           <HeroSection />
-          <MaviloSection />
-          <HandSection />
-          <SignalSection />
-          <ExploreSection />
+          <IntroSection />
+          <ProductSection />
           <MovementSection />
+          <ClosingSection />
           <EngineeringSection />
+          <SignalSection />
           <EcosystemSection />
-          <ContactSection />
+          <ClinicsSection />
+          <HumanSection />
+          <AboutSection />
+          <FinalCtaSection />
         </main>
         <SiteFooter />
       </div>
