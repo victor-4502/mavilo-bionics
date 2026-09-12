@@ -3,6 +3,7 @@
 import { SiteFooter } from "@/components/layout/SiteFooter";
 import { SiteHeader } from "@/components/layout/SiteHeader";
 import { HeroSection } from "@/components/sections/HeroSection";
+import { ProductJourney } from "@/components/sections/ProductJourney";
 import {
   AboutSection,
   ClinicsSection,
@@ -13,7 +14,6 @@ import {
   HumanSection,
   IntroSection,
   MovementSection,
-  ProductSection,
   SignalSection,
 } from "@/components/sections/HomeSections";
 import { useLocale } from "@/lib/locale";
@@ -44,7 +44,7 @@ export default function HomePage() {
         <main className={styles.main}>
           <HeroSection />
           <IntroSection />
-          <ProductSection />
+          <ProductJourney />
           <MovementSection />
           <ClosingSection />
           <EngineeringSection />

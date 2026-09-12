@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { ProductVideo } from "@/components/media/ProductVideo";
+import { ProductVideoLoop } from "@/components/media/ProductVideoLoop";
 import { useLocale } from "@/lib/locale";
 import { PRODUCT_IMAGES } from "@/lib/product-images";
 import { PRODUCT_VIDEOS } from "@/lib/product-videos";
@@ -9,17 +9,15 @@ import styles from "./HeroSection.module.css";
 
 export function HeroSection() {
   const { t } = useLocale();
-  const video = PRODUCT_VIDEOS.palmHero;
 
   return (
     <section id="hero" className={styles.hero} aria-label={t.hero.brand}>
-      <div className={styles.media} aria-hidden={false}>
-        <ProductVideo
-          src={video.src}
-          poster={video.poster}
-          loop={video.loop}
+      <div className={styles.media}>
+        <ProductVideoLoop
+          config={PRODUCT_VIDEOS.palmHero}
           priority
           ariaLabel={t.hero.videoLabel}
+          objectPosition="52% 42%"
         />
         <div className={styles.veil} aria-hidden />
       </div>

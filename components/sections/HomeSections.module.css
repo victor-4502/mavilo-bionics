@@ -17,6 +17,18 @@
   inset: 0;
 }
 
+.bleedVeil {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(5, 11, 20, 0.15) 0%,
+    rgba(5, 11, 20, 0.35) 45%,
+    rgba(5, 11, 20, 0.92) 100%
+  );
+  pointer-events: none;
+}
+
 .overlayCopy {
   position: relative;
   z-index: 1;

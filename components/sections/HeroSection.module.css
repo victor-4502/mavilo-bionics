@@ -18,12 +18,12 @@
   background:
     linear-gradient(
       180deg,
-      rgba(5, 11, 20, 0.35) 0%,
-      rgba(5, 11, 20, 0.15) 40%,
-      rgba(5, 11, 20, 0.72) 78%,
-      rgba(5, 11, 20, 0.95) 100%
+      rgba(5, 11, 20, 0.28) 0%,
+      rgba(5, 11, 20, 0.08) 38%,
+      rgba(5, 11, 20, 0.55) 72%,
+      rgba(5, 11, 20, 0.92) 100%
     ),
-    linear-gradient(90deg, rgba(5, 11, 20, 0.55) 0%, transparent 48%);
+    linear-gradient(90deg, rgba(5, 11, 20, 0.42) 0%, transparent 42%);
   pointer-events: none;
 }
 

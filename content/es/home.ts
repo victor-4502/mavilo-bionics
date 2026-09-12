@@ -48,6 +48,13 @@ const es: HomeContent = {
     dorsalAlt: "MAV 1 vista dorsal con marca embosada",
     detailAlt: "Detalle embosado Mavilo Bionics en la carcasa",
   },
+  journey: {
+    full: "Movimiento con precisión.",
+    palm: "Diseñada para el movimiento.",
+    fingers: "Control coordinado.",
+    thumb: "Precisión mecánica.",
+    detail: "Ingeniería mexicana.",
+  },
   movement: {
     eyebrow: "Movimiento",
     title: "Movimiento coordinado.",

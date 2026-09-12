@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { ProductVideo } from "@/components/media/ProductVideo";
+import { ProductVideoLoop } from "@/components/media/ProductVideoLoop";
 import { useLocale } from "@/lib/locale";
 import { PRODUCT_IMAGES } from "@/lib/product-images";
 import { PRODUCT_VIDEOS } from "@/lib/product-videos";
@@ -9,7 +9,6 @@ import styles from "./HomeSections.module.css";
 
 export function IntroSection() {
   const { t } = useLocale();
-  const video = PRODUCT_VIDEOS.branding;
 
   return (
     <section id="mavilo" className={styles.section} aria-labelledby="intro-title">
@@ -22,11 +21,10 @@ export function IntroSection() {
           <p className={styles.body}>{t.intro.body}</p>
         </div>
         <div className={styles.mediaPanel}>
-          <ProductVideo
-            src={video.src}
-            poster={video.poster}
-            loop={video.loop}
+          <ProductVideoLoop
+            config={PRODUCT_VIDEOS.branding}
             ariaLabel={t.intro.videoLabel}
+            objectPosition="50% 40%"
           />
         </div>
       </div>
@@ -35,83 +33,22 @@ export function IntroSection() {
 }
 
 export function ProductSection() {
-  const { t } = useLocale();
-
-  return (
-    <section id="mav1" className={styles.section} aria-labelledby="product-title">
-      <div className="container">
-        <div className={styles.lead}>
-          <p className="eyebrow">{t.product.eyebrow}</p>
-          <h2 id="product-title" className={styles.h2}>
-            {t.product.title}
-          </h2>
-          <p className={styles.bodyNarrow}>{t.product.body}</p>
-        </div>
-
-        <figure className={styles.heroStill}>
-          <Image
-            src={PRODUCT_IMAGES.heroPalm}
-            alt={t.product.palmAlt}
-            width={1600}
-            height={1200}
-            sizes="(max-width: 900px) 100vw, 70rem"
-            priority={false}
-          />
-        </figure>
-
-        <div className={styles.gallery}>
-          <figure>
-            <Image
-              src={PRODUCT_IMAGES.heroSide}
-              alt={t.product.sideAlt}
-              width={1200}
-              height={900}
-              sizes="(max-width: 900px) 100vw, 33vw"
-            />
-          </figure>
-          <figure>
-            <Image
-              src={PRODUCT_IMAGES.heroDorsal}
-              alt={t.product.dorsalAlt}
-              width={1200}
-              height={900}
-              sizes="(max-width: 900px) 100vw, 33vw"
-            />
-          </figure>
-          <figure>
-            <Image
-              src={PRODUCT_IMAGES.detailBrand}
-              alt={t.product.detailAlt}
-              width={1200}
-              height={900}
-              sizes="(max-width: 900px) 100vw, 33vw"
-            />
-          </figure>
-        </div>
-
-        <ul className={styles.traits}>
-          {t.product.traits.map((trait) => (
-            <li key={trait}>{trait}</li>
-          ))}
-        </ul>
-      </div>
-    </section>
-  );
+  // Replaced by ProductJourney in page.tsx — keep export for compatibility.
+  return null;
 }
 
 export function MovementSection() {
   const { t } = useLocale();
-  const video = PRODUCT_VIDEOS.okGesture;
 
   return (
     <section id="movimiento" className={styles.sectionBleed} aria-labelledby="movement-title">
       <div className={styles.fullMedia}>
-        <ProductVideo
-          src={video.src}
-          poster={video.poster}
-          loop={video.loop}
+        <ProductVideoLoop
+          config={PRODUCT_VIDEOS.okGesture}
           ariaLabel={t.movement.videoLabel}
+          objectPosition="50% 45%"
         />
+        <div className={styles.bleedVeil} aria-hidden />
       </div>
       <div className={`container ${styles.overlayCopy}`}>
         <p className="eyebrow">{t.movement.eyebrow}</p>
@@ -126,7 +63,6 @@ export function MovementSection() {
 
 export function ClosingSection() {
   const { t } = useLocale();
-  const video = PRODUCT_VIDEOS.closeMotion;
 
   return (
     <section id="cierre" className={styles.section} aria-labelledby="closing-title">
@@ -139,11 +75,10 @@ export function ClosingSection() {
           <p className={styles.body}>{t.closing.body}</p>
         </div>
         <div className={styles.mediaPanel}>
-          <ProductVideo
-            src={video.src}
-            poster={video.poster}
-            loop={false}
+          <ProductVideoLoop
+            config={PRODUCT_VIDEOS.closeMotion}
             ariaLabel={t.closing.videoLabel}
+            objectPosition="50% 45%"
           />
         </div>
       </div>
@@ -153,7 +88,6 @@ export function ClosingSection() {
 
 export function EngineeringSection() {
   const { t } = useLocale();
-  const video = PRODUCT_VIDEOS.dorsalPush;
 
   return (
     <section id="tecnologia" className={styles.section} aria-labelledby="eng-title">
@@ -167,11 +101,10 @@ export function EngineeringSection() {
         </div>
 
         <div className={styles.mediaWide}>
-          <ProductVideo
-            src={video.src}
-            poster={video.poster}
-            loop={video.loop}
+          <ProductVideoLoop
+            config={PRODUCT_VIDEOS.dorsalPush}
             ariaLabel={t.engineering.videoLabel}
+            objectPosition="50% 40%"
           />
         </div>
 
