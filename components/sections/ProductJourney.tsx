@@ -1,96 +1,72 @@
 "use client";
 
 import Image from "next/image";
-import { ProductVideoLoop } from "@/components/media/ProductVideoLoop";
 import { useLocale } from "@/lib/locale";
 import { PRODUCT_IMAGES } from "@/lib/product-images";
-import { PRODUCT_VIDEOS } from "@/lib/product-videos";
 import styles from "./ProductJourney.module.css";
 
 /**
- * Explicit visual states — no tall sticky pin, no empty scroll space.
- * Each panel is ~one viewport with real product media + short copy.
+ * Compact product discovery — 3 visual states, native scroll only.
+ * No palm-hero video, no branding video, no sticky/pin.
  */
 export function ProductJourney() {
   const { t } = useLocale();
 
   return (
     <section id="mav1" className={styles.journey} aria-labelledby="product-title">
-      <div className={styles.state}>
-        <div className={styles.media}>
-          <ProductVideoLoop
-            config={PRODUCT_VIDEOS.palmHero}
-            ariaLabel={t.hero.videoLabel}
-            objectPosition="50% 45%"
-            endStill={PRODUCT_IMAGES.heroPalm}
-          />
-        </div>
-        <div className={`container ${styles.copy}`}>
-          <p className="eyebrow">{t.product.eyebrow}</p>
-          <h2 id="product-title" className={styles.title}>
-            {t.product.title}
-          </h2>
-          <p className={styles.line}>{t.journey.full}</p>
-        </div>
-      </div>
+      <header className={`container ${styles.lead}`}>
+        <p className="eyebrow">{t.product.eyebrow}</p>
+        <h2 id="product-title" className={styles.title}>
+          {t.product.title}
+        </h2>
+        <p className={styles.body}>{t.product.body}</p>
+      </header>
 
-      <div className={styles.state}>
-        <div className={styles.media}>
-          <Image
-            src={PRODUCT_IMAGES.heroPalm}
-            alt={t.product.palmAlt}
-            fill
-            sizes="100vw"
-            className={styles.stillPalm}
-          />
-        </div>
-        <div className={`container ${styles.copy}`}>
-          <p className={styles.line}>{t.journey.palm}</p>
-        </div>
-      </div>
+      <div className={styles.states}>
+        <article className={styles.state}>
+          <div className={styles.media}>
+            <Image
+              src={PRODUCT_IMAGES.motionOpen}
+              alt={t.product.palmAlt}
+              fill
+              sizes="(max-width: 720px) 100vw, 50vw"
+              className={styles.stillPalm}
+            />
+          </div>
+          <div className={styles.copy}>
+            <p className={styles.line}>{t.journey.palm}</p>
+          </div>
+        </article>
 
-      <div className={styles.state}>
-        <div className={styles.media}>
-          <Image
-            src={PRODUCT_IMAGES.heroSide}
-            alt={t.product.sideAlt}
-            fill
-            sizes="100vw"
-            className={styles.stillFingers}
-          />
-        </div>
-        <div className={`container ${styles.copy}`}>
-          <p className={styles.line}>{t.journey.fingers}</p>
-        </div>
-      </div>
+        <article className={styles.state}>
+          <div className={styles.media}>
+            <Image
+              src={PRODUCT_IMAGES.heroSide}
+              alt={t.product.sideAlt}
+              fill
+              sizes="(max-width: 720px) 100vw, 50vw"
+              className={styles.stillSide}
+            />
+          </div>
+          <div className={styles.copy}>
+            <p className={styles.line}>{t.journey.profile}</p>
+          </div>
+        </article>
 
-      <div className={styles.state}>
-        <div className={styles.media}>
-          <Image
-            src={PRODUCT_IMAGES.heroSideProfile}
-            alt={t.product.sideAlt}
-            fill
-            sizes="100vw"
-            className={styles.stillThumb}
-          />
-        </div>
-        <div className={`container ${styles.copy}`}>
-          <p className={styles.line}>{t.journey.thumb}</p>
-        </div>
-      </div>
-
-      <div className={styles.state}>
-        <div className={styles.media}>
-          <ProductVideoLoop
-            config={PRODUCT_VIDEOS.branding}
-            ariaLabel={t.intro.videoLabel}
-            objectPosition="50% 38%"
-            endStill={PRODUCT_IMAGES.detailBrand}
-          />
-        </div>
-        <div className={`container ${styles.copy}`}>
-          <p className={styles.line}>{t.journey.detail}</p>
-        </div>
+        <article className={styles.state}>
+          <div className={styles.media}>
+            <Image
+              src={PRODUCT_IMAGES.heroDorsal}
+              alt={t.product.dorsalAlt}
+              fill
+              sizes="(max-width: 720px) 100vw, 50vw"
+              className={styles.stillDorsal}
+            />
+          </div>
+          <div className={styles.copy}>
+            <p className={styles.line}>{t.journey.dorsal}</p>
+          </div>
+        </article>
       </div>
     </section>
   );

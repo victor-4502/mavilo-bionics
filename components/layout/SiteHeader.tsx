@@ -11,8 +11,7 @@ const NAV = [
   { href: "#mav1", key: "mav1" as const },
   { href: "#tecnologia", key: "technology" as const },
   { href: "#ecosistema", key: "ecosystem" as const },
-  { href: "#clinicas", key: "clinics" as const },
-  { href: "#empresa", key: "mavilo" as const },
+  { href: "#mavilo", key: "mavilo" as const },
   { href: "#contacto", key: "contact" as const },
 ];
 

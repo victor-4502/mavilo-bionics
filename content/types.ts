@@ -41,11 +41,9 @@ export type HomeContent = {
     detailAlt: string;
   };
   journey: {
-    full: string;
     palm: string;
-    fingers: string;
-    thumb: string;
-    detail: string;
+    profile: string;
+    dorsal: string;
   };
   movement: {
     eyebrow: string;

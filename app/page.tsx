@@ -5,16 +5,11 @@ import { SiteHeader } from "@/components/layout/SiteHeader";
 import { HeroSection } from "@/components/sections/HeroSection";
 import { ProductJourney } from "@/components/sections/ProductJourney";
 import {
-  AboutSection,
-  ClinicsSection,
-  ClosingSection,
-  EcosystemSection,
   EngineeringSection,
-  FinalCtaSection,
-  HumanSection,
   IntroSection,
   MovementSection,
-  SignalSection,
+  PurposeCtaSection,
+  SystemSection,
 } from "@/components/sections/HomeSections";
 import { useLocale } from "@/lib/locale";
 import { useEffect } from "react";
@@ -35,6 +30,11 @@ function DocumentMeta() {
   return null;
 }
 
+/**
+ * Home narrative — 7 acts:
+ * 01 WOW → 02 Identity → 03 Discover MAV 1 → 04 Movement
+ * → 05 Engineering → 06 System → 07 Purpose + Contact
+ */
 export default function HomePage() {
   return (
     <>
@@ -42,18 +42,20 @@ export default function HomePage() {
       <div className={styles.shell}>
         <SiteHeader />
         <main className={styles.main}>
+          {/* 01 — WOW */}
           <HeroSection />
+          {/* 02 — MAVILO / identity */}
           <IntroSection />
+          {/* 03 — Discover MAV 1 */}
           <ProductJourney />
+          {/* 04 — Movement */}
           <MovementSection />
-          <ClosingSection />
+          {/* 05 — Engineering */}
           <EngineeringSection />
-          <SignalSection />
-          <EcosystemSection />
-          <ClinicsSection />
-          <HumanSection />
-          <AboutSection />
-          <FinalCtaSection />
+          {/* 06 — System (signal + ecosystem + clinics) */}
+          <SystemSection />
+          {/* 07 — Purpose + contact */}
+          <PurposeCtaSection />
         </main>
         <SiteFooter />
       </div>

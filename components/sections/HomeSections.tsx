@@ -7,11 +7,12 @@ import { PRODUCT_IMAGES } from "@/lib/product-images";
 import { PRODUCT_VIDEOS } from "@/lib/product-videos";
 import styles from "./HomeSections.module.css";
 
+/** 02 — MAVILO / identity. Sole home use of branding video. */
 export function IntroSection() {
   const { t } = useLocale();
 
   return (
-    <section id="mavilo" className={styles.section} aria-labelledby="intro-title">
+    <section id="mavilo" className={styles.identity} aria-labelledby="intro-title">
       <div className={`container ${styles.split}`}>
         <div className={styles.copyBlock}>
           <p className="eyebrow">{t.intro.brand}</p>
@@ -33,11 +34,7 @@ export function IntroSection() {
   );
 }
 
-export function ProductSection() {
-  // Replaced by ProductJourney in page.tsx — keep export for compatibility.
-  return null;
-}
-
+/** 04 — Movement. Single cinematic gesture moment. */
 export function MovementSection() {
   const { t } = useLocale();
 
@@ -48,7 +45,7 @@ export function MovementSection() {
           config={PRODUCT_VIDEOS.okGesture}
           ariaLabel={t.movement.videoLabel}
           objectPosition="50% 45%"
-          endStill={PRODUCT_IMAGES.heroPalm}
+          endStill={PRODUCT_IMAGES.motionSide}
         />
         <div className={styles.bleedVeil} aria-hidden />
       </div>
@@ -63,37 +60,12 @@ export function MovementSection() {
   );
 }
 
-export function ClosingSection() {
-  const { t } = useLocale();
-
-  return (
-    <section id="cierre" className={styles.section} aria-labelledby="closing-title">
-      <div className={`container ${styles.split}`}>
-        <div className={styles.copyBlock}>
-          <p className="eyebrow">{t.closing.eyebrow}</p>
-          <h2 id="closing-title" className={styles.h2}>
-            {t.closing.title}
-          </h2>
-          <p className={styles.body}>{t.closing.body}</p>
-        </div>
-        <div className={styles.mediaPanel}>
-          <ProductVideoLoop
-            config={PRODUCT_VIDEOS.closeMotion}
-            ariaLabel={t.closing.videoLabel}
-            objectPosition="50% 45%"
-            endStill={PRODUCT_IMAGES.motionSide}
-          />
-        </div>
-      </div>
-    </section>
-  );
-}
-
+/** 05 — Engineering. Dorsal architecture + real assembly reading. */
 export function EngineeringSection() {
   const { t } = useLocale();
 
   return (
-    <section id="tecnologia" className={styles.section} aria-labelledby="eng-title">
+    <section id="tecnologia" className={styles.engineering} aria-labelledby="eng-title">
       <div className="container">
         <div className={styles.lead}>
           <p className="eyebrow">{t.engineering.eyebrow}</p>
@@ -128,156 +100,111 @@ export function EngineeringSection() {
   );
 }
 
-export function SignalSection() {
+/**
+ * 06 — System. Compact signal → ecosystem → clinics narrative.
+ * No invented app UI — product photo only if it adds a new angle.
+ */
+export function SystemSection() {
   const { t } = useLocale();
 
   return (
-    <section id="senal" className={styles.section} aria-labelledby="signal-title">
-      <div className={`container ${styles.signalWrap}`}>
-        <div className={styles.leadCenter}>
+    <section id="ecosistema" className={styles.system} aria-labelledby="system-title">
+      <div className="container">
+        <div className={styles.systemLead}>
           <p className="eyebrow">{t.signal.eyebrow}</p>
-          <h2 id="signal-title" className={styles.h2}>
+          <h2 id="system-title" className={styles.h2}>
             {t.signal.title}
           </h2>
           <p className={styles.bodyNarrow}>{t.signal.body}</p>
         </div>
-        <ol className={styles.signalChain}>
+
+        <ol className={styles.signalRow} aria-label={t.signal.title}>
           {t.signal.steps.map((step, index) => (
-            <li key={step} className={styles.signalStep}>
+            <li key={step} className={styles.signalChip}>
               <span className={styles.signalLabel}>{step}</span>
               {index < t.signal.steps.length - 1 ? (
-                <span className={styles.signalArrow} aria-hidden>
-                  ↓
+                <span className={styles.signalSep} aria-hidden>
+                  →
                 </span>
               ) : null}
             </li>
           ))}
         </ol>
-      </div>
-    </section>
-  );
-}
 
-export function EcosystemSection() {
-  const { t } = useLocale();
+        <div className={styles.systemGrid}>
+          <div className={styles.systemCopy}>
+            <p className="eyebrow">{t.ecosystem.eyebrow}</p>
+            <h3 className={styles.h3}>{t.ecosystem.title}</h3>
+            <p className={styles.body}>{t.ecosystem.body}</p>
+            <ul className={styles.plainList}>
+              {t.ecosystem.points.map((point) => (
+                <li key={point}>{point}</li>
+              ))}
+            </ul>
+          </div>
 
-  return (
-    <section id="ecosistema" className={styles.section} aria-labelledby="eco-title">
-      <div className={`container ${styles.split}`}>
-        <div className={styles.copyBlock}>
-          <p className="eyebrow">{t.ecosystem.eyebrow}</p>
-          <h2 id="eco-title" className={styles.h2}>
-            {t.ecosystem.title}
-          </h2>
-          <p className={styles.body}>{t.ecosystem.body}</p>
-          <ul className={styles.plainList}>
-            {t.ecosystem.points.map((point) => (
-              <li key={point}>{point}</li>
+          <figure className={styles.stillPanel}>
+            <Image
+              src={PRODUCT_IMAGES.heroSideProfile}
+              alt={t.product.sideAlt}
+              width={1200}
+              height={900}
+              sizes="(max-width: 900px) 100vw, 36rem"
+            />
+          </figure>
+        </div>
+
+        <div className={styles.clinicsBlock} id="clinicas">
+          <p className="eyebrow">{t.clinics.eyebrow}</p>
+          <h3 className={styles.h3}>{t.clinics.title}</h3>
+          <p className={styles.bodyNarrow}>{t.clinics.body}</p>
+          <ul className={styles.clinicRow}>
+            {t.clinics.points.map((point, index) => (
+              <li key={point}>
+                <span className={styles.clinicIndex}>
+                  {String(index + 1).padStart(2, "0")}
+                </span>
+                <p>{point}</p>
+              </li>
             ))}
           </ul>
         </div>
-        <figure className={styles.stillPanel}>
-          <Image
-            src={PRODUCT_IMAGES.heroSideProfile}
-            alt={t.product.sideAlt}
-            width={1200}
-            height={900}
-            sizes="(max-width: 900px) 100vw, 40rem"
-          />
-        </figure>
       </div>
     </section>
   );
 }
 
-export function ClinicsSection() {
+/** 07 — Purpose + contact. Brand close, not corporate form. */
+export function PurposeCtaSection() {
   const { t } = useLocale();
 
   return (
-    <section id="clinicas" className={styles.section} aria-labelledby="clinics-title">
-      <div className="container">
-        <div className={styles.lead}>
-          <p className="eyebrow">{t.clinics.eyebrow}</p>
-          <h2 id="clinics-title" className={styles.h2}>
-            {t.clinics.title}
+    <section id="contacto" className={styles.purpose} aria-labelledby="cta-title">
+      <div className={`container ${styles.purposeInner}`}>
+        <div className={styles.purposeBrand} id="empresa">
+          <p className={styles.humanLine}>{t.human.line1}</p>
+          <p className={styles.humanLineMuted}>{t.human.line2}</p>
+          <p className={styles.aboutMark}>{t.about.title}</p>
+          <p className={styles.bodyNarrow}>{t.about.body}</p>
+        </div>
+
+        <div className={styles.purposeCta}>
+          <h2 id="cta-title" className={styles.finalTitle}>
+            {t.cta.title}
           </h2>
-          <p className={styles.bodyNarrow}>{t.clinics.body}</p>
-        </div>
-        <ul className={styles.clinicGrid}>
-          {t.clinics.points.map((point, index) => (
-            <li key={point}>
-              <span className={styles.clinicIndex}>
-                {String(index + 1).padStart(2, "0")}
-              </span>
-              <p>{point}</p>
-            </li>
-          ))}
-        </ul>
-      </div>
-    </section>
-  );
-}
-
-export function HumanSection() {
-  const { t } = useLocale();
-
-  return (
-    <section className={styles.human} aria-label={t.human.line1}>
-      <div className="container">
-        <p className={styles.humanLine}>{t.human.line1}</p>
-        <p className={styles.humanLine}>{t.human.line2}</p>
-      </div>
-    </section>
-  );
-}
-
-export function AboutSection() {
-  const { t } = useLocale();
-
-  return (
-    <section id="empresa" className={styles.section} aria-labelledby="about-title">
-      <div className={`container ${styles.about}`}>
-        <p className="eyebrow">{t.about.eyebrow}</p>
-        <h2 id="about-title" className={styles.h2}>
-          {t.about.title}
-        </h2>
-        <p className={styles.bodyNarrow}>{t.about.body}</p>
-      </div>
-    </section>
-  );
-}
-
-export function FinalCtaSection() {
-  const { t } = useLocale();
-
-  return (
-    <section id="contacto" className={styles.final} aria-labelledby="cta-title">
-      <div className={styles.finalMedia}>
-        <Image
-          src={PRODUCT_IMAGES.heroPalm}
-          alt={t.cta.imageAlt}
-          fill
-          sizes="100vw"
-          className={styles.finalImage}
-        />
-        <div className={styles.finalVeil} aria-hidden />
-      </div>
-      <div className={`container ${styles.finalCopy}`}>
-        <h2 id="cta-title" className={styles.finalTitle}>
-          {t.cta.title}
-        </h2>
-        <p className={styles.finalBody}>{t.cta.body}</p>
-        <div className={styles.actions}>
-          <a className="btn btn-primary" href={`mailto:${t.cta.email}`}>
-            {t.cta.primary}
-          </a>
-          <a className="btn btn-ghost" href="#mav1">
-            {t.cta.secondary}
+          <p className={styles.finalBody}>{t.cta.body}</p>
+          <div className={styles.actions}>
+            <a className="btn btn-primary" href={`mailto:${t.cta.email}`}>
+              {t.cta.primary}
+            </a>
+            <a className="btn btn-ghost" href="#mav1">
+              {t.cta.secondary}
+            </a>
+          </div>
+          <a className={styles.email} href={`mailto:${t.cta.email}`}>
+            {t.cta.email}
           </a>
         </div>
-        <a className={styles.email} href={`mailto:${t.cta.email}`}>
-          {t.cta.email}
-        </a>
       </div>
     </section>
   );
