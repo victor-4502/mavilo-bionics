@@ -32,12 +32,12 @@ export function fallbackForHandState(
 ): string {
   switch (handState) {
     case "open":
-      return PRODUCT_IMAGES.motionOpen;
+      return PRODUCT_IMAGES.heroSide;
     case "close":
-      return PRODUCT_IMAGES.motionSide;
+      return PRODUCT_IMAGES.heroSideProfile;
     case "explore":
     case "exploded":
-      return PRODUCT_IMAGES.heroSide;
+      return PRODUCT_IMAGES.heroDorsal;
     case "hero":
     default:
       return PRODUCT_IMAGES.heroPalm;

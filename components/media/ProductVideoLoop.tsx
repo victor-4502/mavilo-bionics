@@ -24,6 +24,11 @@ type ProductVideoLoopProps = {
    * Defaults to config.poster.
    */
   endStill?: string;
+  /**
+   * When true, keep the last clean frame on the video instead of crossfading
+   * to a separate product still (avoids repeating hero photos).
+   */
+  holdLastFrame?: boolean;
 };
 
 /**
@@ -39,6 +44,7 @@ export function ProductVideoLoop({
   objectFit = "cover",
   enabled = true,
   endStill,
+  holdLastFrame = false,
 }: ProductVideoLoopProps) {
   const reactId = useId();
   const instanceId = `pvl-${reactId}`;
@@ -167,7 +173,8 @@ export function ProductVideoLoop({
     reduceMotion,
   ]);
 
-  const showStill = reduceMotion || finished;
+  const showStill = reduceMotion || (finished && !holdLastFrame);
+  const fadeVideo = finished && !holdLastFrame;
 
   return (
     <div className={`${styles.frame} ${className ?? ""}`}>
@@ -182,7 +189,7 @@ export function ProductVideoLoop({
       {!reduceMotion ? (
         <video
           ref={videoRef}
-          className={`${styles.video} ${finished ? styles.videoFaded : ""}`}
+          className={`${styles.video} ${fadeVideo ? styles.videoFaded : ""}`}
           style={{ objectPosition, objectFit }}
           poster={config.poster}
           muted

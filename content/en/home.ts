@@ -49,9 +49,7 @@ const en: HomeContent = {
     detailAlt: "Embossed Mavilo Bionics mark on the shell",
   },
   journey: {
-    palm: "Architecture built for the gesture.",
     profile: "Coordinated movement.",
-    dorsal: "Engineering from within.",
   },
   movement: {
     eyebrow: "Movement",

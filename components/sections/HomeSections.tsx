@@ -45,7 +45,7 @@ export function MovementSection() {
           config={PRODUCT_VIDEOS.okGesture}
           ariaLabel={t.movement.videoLabel}
           objectPosition="50% 45%"
-          endStill={PRODUCT_IMAGES.motionSide}
+          holdLastFrame
         />
         <div className={styles.bleedVeil} aria-hidden />
       </div>

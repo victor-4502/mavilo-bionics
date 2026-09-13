@@ -49,9 +49,7 @@ const es: HomeContent = {
     detailAlt: "Detalle embosado Mavilo Bionics en la carcasa",
   },
   journey: {
-    palm: "Arquitectura pensada para el gesto.",
     profile: "Movimiento coordinado.",
-    dorsal: "Ingeniería desde dentro.",
   },
   movement: {
     eyebrow: "Movimiento",

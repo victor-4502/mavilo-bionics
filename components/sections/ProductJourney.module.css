@@ -1,12 +1,18 @@
 .journey {
   position: relative;
   background: #050b14;
-  padding: clamp(3rem, 8vh, 5.5rem) 0 clamp(2rem, 5vh, 3.5rem);
+  padding: clamp(3.25rem, 9vh, 6rem) 0;
 }
 
-.lead {
-  max-width: 38rem;
-  margin-bottom: clamp(1.75rem, 4vh, 2.75rem);
+.split {
+  display: grid;
+  grid-template-columns: 0.95fr 1.15fr;
+  gap: clamp(1.5rem, 4vw, 3.5rem);
+  align-items: center;
+}
+
+.copyBlock {
+  max-width: 34rem;
 }
 
 .title {
@@ -22,116 +28,41 @@
   margin: 1rem 0 0;
   color: var(--color-text-muted);
   font-size: var(--fs-lead);
-  max-width: 36rem;
 }
 
-.states {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 0.75rem;
-  padding: 0 clamp(1rem, 3vw, 1.5rem);
-  max-width: 90rem;
-  margin: 0 auto;
+.line {
+  margin: 1.5rem 0 0;
+  font-family: var(--font-display);
+  font-size: clamp(0.95rem, 1.5vw, 1.1rem);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-text);
 }
 
-.state {
+.media {
   position: relative;
-  display: grid;
-  grid-template-rows: 1fr auto;
-  min-height: min(52dvh, 28rem);
+  margin: 0;
+  aspect-ratio: 4 / 3;
   overflow: hidden;
   background: #0a121c;
   border: 1px solid var(--color-line);
 }
 
-.media {
-  position: relative;
-  min-height: min(42dvh, 22rem);
-  background: #050b14;
-}
-
-.stillPalm,
-.stillSide,
-.stillDorsal {
+.still {
   object-fit: cover;
-  transition: opacity 0.45s ease, transform 0.6s ease;
-}
-
-.stillPalm {
-  object-position: 50% 42%;
-}
-
-.stillSide {
   object-position: 58% 28%;
 }
 
-.stillDorsal {
-  object-position: 50% 40%;
-}
-
-.copy {
-  position: relative;
-  z-index: 1;
-  padding: 1rem 1.1rem 1.25rem;
-  background: linear-gradient(
-    180deg,
-    rgba(5, 11, 20, 0.55) 0%,
-    rgba(5, 11, 20, 0.96) 100%
-  );
-}
-
-.line {
-  margin: 0;
-  font-family: var(--font-display);
-  font-size: clamp(0.95rem, 1.4vw, 1.15rem);
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  color: var(--color-text);
-  line-height: 1.35;
-}
-
-@media (max-width: 960px) {
-  .states {
-    grid-template-columns: 1fr;
-    gap: 0.65rem;
-  }
-
-  .state {
-    min-height: 0;
-    grid-template-columns: 1.15fr 0.85fr;
-    grid-template-rows: none;
-    align-items: stretch;
-  }
-
-  .media {
-    min-height: min(36dvh, 16rem);
-  }
-
-  .copy {
-    display: grid;
-    align-content: end;
-    padding: 1.1rem 1rem;
-  }
-}
-
-@media (max-width: 560px) {
-  .state {
+@media (max-width: 900px) {
+  .split {
     grid-template-columns: 1fr;
   }
 
   .media {
-    min-height: min(48dvh, 18rem);
+    aspect-ratio: 5 / 4;
   }
 
-  .stillSide {
+  .still {
     object-position: 55% 24%;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .stillPalm,
-  .stillSide,
-  .stillDorsal {
-    transition: none;
   }
 }

@@ -42,7 +42,8 @@ export const PRODUCT_VIDEOS = {
   },
   okGesture: {
     src: "/videos/mav1/mav1-ok-gesture.mp4",
-    poster: "/images/product/hero-palm.jpg",
+    /** Poster only for reduced-motion / preload — not a section hero. */
+    poster: "/images/product/hero-side.jpg",
     cleanStart: 0.08,
     endPad: 0.22,
     playbackRate: 0.85,
@@ -50,7 +51,7 @@ export const PRODUCT_VIDEOS = {
   /** Hard cut before index/thumb defect. Never play past cleanEnd. */
   closeMotion: {
     src: "/videos/mav1/mav1-close-motion.mp4",
-    poster: "/images/product/motion-side.jpg",
+    poster: "/images/product/hero-side.jpg",
     cleanStart: 0.05,
     cleanEnd: 1.15,
     endPad: 0.9,
