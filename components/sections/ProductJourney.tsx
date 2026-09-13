@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { ProductVideoLoop } from "@/components/media/ProductVideoLoop";
 import { useLocale } from "@/lib/locale";
 import { PRODUCT_IMAGES } from "@/lib/product-images";
@@ -9,14 +9,18 @@ import { PRODUCT_VIDEOS } from "@/lib/product-videos";
 import { gsap, loadScrollTrigger } from "@/lib/scroll/gsap";
 import styles from "./ProductJourney.module.css";
 
+type ActiveLayer = "full" | "fingers" | "thumb" | "detail";
+
 /**
  * Editorial scroll journey through real MAV 1 views.
  * Crops / scale / crossfades only — never fake 360 orbit.
+ * Does not use motion-open.jpg (pose may contradict real coordinated motion).
  */
 export function ProductJourney() {
   const { t } = useLocale();
   const rootRef = useRef<HTMLElement>(null);
   const stageRef = useRef<HTMLDivElement>(null);
+  const [activeLayer, setActiveLayer] = useState<ActiveLayer>("full");
 
   useEffect(() => {
     const root = rootRef.current;
@@ -60,7 +64,7 @@ export function ProductJourney() {
 
         gsap.set(layers, { opacity: 0 });
         gsap.set(layerFull, { opacity: 1 });
-        gsap.set(captions, { opacity: 0, y: 14 });
+        gsap.set(captions, { opacity: 0, y: 12 });
         gsap.set(cFull, { opacity: 1, y: 0 });
         if (media) gsap.set(media, { scale: 1, transformOrigin: "50% 42%" });
 
@@ -69,31 +73,42 @@ export function ProductJourney() {
             trigger: root,
             start: "top top",
             end: "bottom bottom",
-            scrub: 0.7,
+            scrub: 0.75,
             invalidateOnRefresh: true,
+            onUpdate: (self) => {
+              const p = self.progress;
+              if (p < 0.28) setActiveLayer("full");
+              else if (p < 0.52) setActiveLayer("fingers");
+              else if (p < 0.76) setActiveLayer("thumb");
+              else setActiveLayer("detail");
+            },
           },
         });
 
-        tl.to(media, { scale: 1.1, duration: 1, ease: "none" }, 0)
-          .to(cFull, { opacity: 0, y: -10, duration: 0.35, ease: "none" }, 0.2)
+        // Full product → palm emphasis (same real video, slower crop via scale)
+        tl.to(media, { scale: 1.08, duration: 1, ease: "none" }, 0)
+          .to(cFull, { opacity: 0, y: -8, duration: 0.35, ease: "none" }, 0.2)
           .to(cPalm, { opacity: 1, y: 0, duration: 0.35, ease: "none" }, 0.3);
 
-        tl.to(layerFull, { opacity: 0, duration: 0.5, ease: "none" }, 1)
-          .to(layerFingers, { opacity: 1, duration: 0.5, ease: "none" }, 1)
-          .to(media, { scale: 1.18, duration: 1, ease: "none" }, 1)
-          .to(cPalm, { opacity: 0, y: -10, duration: 0.3, ease: "none" }, 1.15)
+        // Crossfade to side crop — fingers
+        tl.to(layerFull, { opacity: 0, duration: 0.55, ease: "none" }, 1)
+          .to(layerFingers, { opacity: 1, duration: 0.55, ease: "none" }, 1)
+          .to(media, { scale: 1.14, duration: 1, ease: "none" }, 1)
+          .to(cPalm, { opacity: 0, y: -8, duration: 0.3, ease: "none" }, 1.15)
           .to(cFingers, { opacity: 1, y: 0, duration: 0.3, ease: "none" }, 1.25);
 
-        tl.to(layerFingers, { opacity: 0, duration: 0.45, ease: "none" }, 2)
-          .to(layerThumb, { opacity: 1, duration: 0.45, ease: "none" }, 2)
-          .to(media, { scale: 1.24, duration: 1, ease: "none" }, 2)
-          .to(cFingers, { opacity: 0, y: -10, duration: 0.3, ease: "none" }, 2.15)
+        // Crossfade to side-profile crop — thumb / mechanism zone
+        tl.to(layerFingers, { opacity: 0, duration: 0.5, ease: "none" }, 2)
+          .to(layerThumb, { opacity: 1, duration: 0.5, ease: "none" }, 2)
+          .to(media, { scale: 1.18, duration: 1, ease: "none" }, 2)
+          .to(cFingers, { opacity: 0, y: -8, duration: 0.3, ease: "none" }, 2.15)
           .to(cThumb, { opacity: 1, y: 0, duration: 0.3, ease: "none" }, 2.25);
 
-        tl.to(layerThumb, { opacity: 0, duration: 0.5, ease: "none" }, 3)
-          .to(layerDetail, { opacity: 1, duration: 0.5, ease: "none" }, 3)
-          .to(media, { scale: 1.06, duration: 1, ease: "none" }, 3)
-          .to(cThumb, { opacity: 0, y: -10, duration: 0.3, ease: "none" }, 3.15)
+        // Crossfade to branding detail video
+        tl.to(layerThumb, { opacity: 0, duration: 0.55, ease: "none" }, 3)
+          .to(layerDetail, { opacity: 1, duration: 0.55, ease: "none" }, 3)
+          .to(media, { scale: 1.05, duration: 1, ease: "none" }, 3)
+          .to(cThumb, { opacity: 0, y: -8, duration: 0.3, ease: "none" }, 3.15)
           .to(cDetail, { opacity: 1, y: 0, duration: 0.35, ease: "none" }, 3.25);
       }, root);
     })();
@@ -119,6 +134,7 @@ export function ProductJourney() {
                 config={PRODUCT_VIDEOS.palmHero}
                 ariaLabel={t.hero.videoLabel}
                 objectPosition="50% 45%"
+                enabled={activeLayer === "full"}
               />
             </div>
             <div className={`${styles.layer} ${styles.layerStill}`} data-layer="fingers">
@@ -132,8 +148,8 @@ export function ProductJourney() {
             </div>
             <div className={`${styles.layer} ${styles.layerStill}`} data-layer="thumb">
               <Image
-                src={PRODUCT_IMAGES.motionOpen}
-                alt={t.product.palmAlt}
+                src={PRODUCT_IMAGES.heroSideProfile}
+                alt={t.product.sideAlt}
                 fill
                 sizes="100vw"
                 className={styles.stillThumb}
@@ -143,7 +159,8 @@ export function ProductJourney() {
               <ProductVideoLoop
                 config={PRODUCT_VIDEOS.branding}
                 ariaLabel={t.intro.videoLabel}
-                objectPosition="50% 40%"
+                objectPosition="50% 38%"
+                enabled={activeLayer === "detail"}
               />
             </div>
           </div>

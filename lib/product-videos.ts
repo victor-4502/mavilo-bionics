@@ -1,27 +1,26 @@
 /**
  * MAV 1 product video registry — real footage only.
- * Playback configs avoid defective end frames and hard restart loops.
+ *
+ * cleanStart / cleanEnd define the ONLY playable window.
+ * Never play past cleanEnd (especially close-motion defect frames).
  */
 
 export type ProductVideoPlayback = {
   src: string;
   poster: string;
-  /** Ping-pong within [startTime, endTime]; never native loop. */
+  /** Ping-pong within clean window, or play once then hold. */
   mode: "pingpong" | "once";
-  /** Seconds from start (inclusive). */
-  startTime: number;
+  /** Inclusive start of the clean segment (seconds). */
+  cleanStart: number;
   /**
-   * Absolute end time. If omitted, uses (duration - endPad) once metadata loads.
-   * Prefer endPad for clips whose duration varies slightly.
+   * Exclusive end of the clean segment (seconds).
+   * If omitted, resolved as duration - endPad after metadata.
    */
-  endTime?: number;
-  /** Trim from absolute end to avoid defective / flash frames. */
+  cleanEnd?: number;
+  /** Fallback trim from absolute duration when cleanEnd is omitted. */
   endPad: number;
-  /** Native forward playbackRate. */
   playbackRate: number;
-  /** Reverse scrub speed multiplier (1 = realtime). */
   reverseRate: number;
-  /** Soft pause at each turnaround (ms). */
   pauseAtEndsMs: number;
 };
 
@@ -30,52 +29,57 @@ export const PRODUCT_VIDEOS = {
     src: "/videos/mav1/mav1-palm-hero.mp4",
     poster: "/images/product/hero-palm.jpg",
     mode: "pingpong",
-    startTime: 0.05,
-    endPad: 0.12,
-    playbackRate: 0.85,
-    reverseRate: 0.85,
-    pauseAtEndsMs: 120,
+    cleanStart: 0.06,
+    endPad: 0.18,
+    playbackRate: 0.82,
+    reverseRate: 0.82,
+    pauseAtEndsMs: 140,
   },
   branding: {
     src: "/videos/mav1/mavilo-branding.mp4",
     poster: "/images/product/detail-brand.jpg",
     mode: "pingpong",
-    startTime: 0.08,
-    endPad: 0.18,
-    playbackRate: 0.7,
-    reverseRate: 0.7,
-    pauseAtEndsMs: 220,
+    cleanStart: 0.1,
+    endPad: 0.22,
+    playbackRate: 0.68,
+    reverseRate: 0.68,
+    pauseAtEndsMs: 240,
   },
   dorsalPush: {
     src: "/videos/mav1/mav1-dorsal-push.mp4",
     poster: "/images/product/hero-dorsal.jpg",
     mode: "pingpong",
-    startTime: 0.05,
-    endPad: 0.15,
-    playbackRate: 0.8,
-    reverseRate: 0.8,
-    pauseAtEndsMs: 160,
+    cleanStart: 0.06,
+    endPad: 0.2,
+    playbackRate: 0.78,
+    reverseRate: 0.78,
+    pauseAtEndsMs: 180,
   },
   okGesture: {
     src: "/videos/mav1/mav1-ok-gesture.mp4",
-    poster: "/images/product/motion-open.jpg",
+    poster: "/images/product/hero-palm.jpg",
     mode: "pingpong",
-    startTime: 0.06,
-    endPad: 0.2,
-    playbackRate: 0.75,
-    reverseRate: 0.65,
-    pauseAtEndsMs: 520,
+    cleanStart: 0.08,
+    endPad: 0.28,
+    playbackRate: 0.72,
+    reverseRate: 0.62,
+    pauseAtEndsMs: 560,
   },
-  /** Already trimmed — keep a conservative endPad; never show post-trim defects. */
+  /**
+   * ABSOLUTE RULE: never play past cleanEnd.
+   * Clip ~2s; hard-cut early so index/thumb defect never appears.
+   * Prefer absolute cleanEnd over endPad for this asset.
+   */
   closeMotion: {
     src: "/videos/mav1/mav1-close-motion.mp4",
     poster: "/images/product/motion-side.jpg",
     mode: "pingpong",
-    startTime: 0.04,
-    endPad: 0.25,
-    playbackRate: 0.8,
-    reverseRate: 0.75,
-    pauseAtEndsMs: 280,
+    cleanStart: 0.05,
+    cleanEnd: 1.15,
+    endPad: 0.9,
+    playbackRate: 0.78,
+    reverseRate: 0.72,
+    pauseAtEndsMs: 320,
   },
 } as const satisfies Record<string, ProductVideoPlayback>;
 
