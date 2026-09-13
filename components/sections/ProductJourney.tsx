@@ -22,6 +22,7 @@ export function ProductJourney() {
             config={PRODUCT_VIDEOS.palmHero}
             ariaLabel={t.hero.videoLabel}
             objectPosition="50% 45%"
+            endStill={PRODUCT_IMAGES.heroPalm}
           />
         </div>
         <div className={`container ${styles.copy}`}>
@@ -84,6 +85,7 @@ export function ProductJourney() {
             config={PRODUCT_VIDEOS.branding}
             ariaLabel={t.intro.videoLabel}
             objectPosition="50% 38%"
+            endStill={PRODUCT_IMAGES.detailBrand}
           />
         </div>
         <div className={`container ${styles.copy}`}>

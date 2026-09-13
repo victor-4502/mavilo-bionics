@@ -25,6 +25,7 @@ export function IntroSection() {
             config={PRODUCT_VIDEOS.branding}
             ariaLabel={t.intro.videoLabel}
             objectPosition="50% 40%"
+            endStill={PRODUCT_IMAGES.detailBrand}
           />
         </div>
       </div>
@@ -47,6 +48,7 @@ export function MovementSection() {
           config={PRODUCT_VIDEOS.okGesture}
           ariaLabel={t.movement.videoLabel}
           objectPosition="50% 45%"
+          endStill={PRODUCT_IMAGES.heroPalm}
         />
         <div className={styles.bleedVeil} aria-hidden />
       </div>
@@ -79,6 +81,7 @@ export function ClosingSection() {
             config={PRODUCT_VIDEOS.closeMotion}
             ariaLabel={t.closing.videoLabel}
             objectPosition="50% 45%"
+            endStill={PRODUCT_IMAGES.motionSide}
           />
         </div>
       </div>
@@ -105,6 +108,7 @@ export function EngineeringSection() {
             config={PRODUCT_VIDEOS.dorsalPush}
             ariaLabel={t.engineering.videoLabel}
             objectPosition="50% 40%"
+            endStill={PRODUCT_IMAGES.heroDorsal}
           />
         </div>
 

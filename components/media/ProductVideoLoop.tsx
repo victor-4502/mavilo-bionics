@@ -17,14 +17,18 @@ type ProductVideoLoopProps = {
   priority?: boolean;
   objectPosition?: string;
   objectFit?: "cover" | "contain";
-  /** When false, never plays (journey inactive layers). */
+  /** When false, never plays (inactive layers). */
   enabled?: boolean;
+  /**
+   * Still shown under the video; crossfades in when playback reaches cleanEnd.
+   * Defaults to config.poster.
+   */
+  endStill?: string;
 };
 
 /**
  * Forward-only cinematic product video.
- * Plays cleanStart→cleanEnd once, then holds the last clean frame.
- * No HTML loop. No reverse. No currentTime scrubbing animation.
+ * Plays cleanStart→cleanEnd once, then crossfades to a still (no reverse, no loop, no freeze).
  */
 export function ProductVideoLoop({
   config,
@@ -34,17 +38,19 @@ export function ProductVideoLoop({
   objectPosition = "center",
   objectFit = "cover",
   enabled = true,
+  endStill,
 }: ProductVideoLoopProps) {
   const reactId = useId();
   const instanceId = `pvl-${reactId}`;
   const videoRef = useRef<HTMLVideoElement>(null);
   const endTimeRef = useRef<number | null>(config.cleanEnd ?? null);
-  const [finished, setFinished] = useState(false);
+  const stillSrc = endStill ?? config.poster;
 
   const [armed, setArmed] = useState(priority);
   const [inView, setInView] = useState(priority);
   const [reduceMotion, setReduceMotion] = useState(false);
   const [isActiveSolo, setIsActiveSolo] = useState(false);
+  const [finished, setFinished] = useState(false);
 
   const resolveEnd = useCallback(
     (video: HTMLVideoElement) => {
@@ -96,12 +102,11 @@ export function ProductVideoLoop({
 
     const onLoaded = () => {
       resolveEnd(video);
-      if (!finished) {
-        video.currentTime = config.cleanStart;
-      }
+      if (!finished) video.currentTime = config.cleanStart;
     };
 
     const onTimeUpdate = () => {
+      if (finished) return;
       const end = endTimeRef.current ?? resolveEnd(video);
       if (video.currentTime >= end - 0.04) {
         video.pause();
@@ -136,7 +141,6 @@ export function ProductVideoLoop({
     if (!video || !armed) return;
 
     const allowed = enabled && inView && !reduceMotion && isActiveSolo && !finished;
-
     if (!allowed) {
       video.pause();
       return;
@@ -155,48 +159,43 @@ export function ProductVideoLoop({
     armed,
     config.cleanStart,
     config.playbackRate,
+    config.src,
     enabled,
     finished,
     inView,
     isActiveSolo,
     reduceMotion,
-    config.src,
   ]);
 
-  useEffect(() => {
-    const video = videoRef.current;
-    if (!video || !finished) return;
-    video.pause();
-    const end = endTimeRef.current;
-    if (typeof end === "number") video.currentTime = end;
-  }, [finished, inView, enabled]);
+  const showStill = reduceMotion || finished;
 
   return (
     <div className={`${styles.frame} ${className ?? ""}`}>
-      <video
-        ref={videoRef}
-        className={styles.video}
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img
+        className={`${styles.still} ${showStill ? styles.stillVisible : ""}`}
+        src={stillSrc}
+        alt=""
+        aria-hidden
         style={{ objectPosition, objectFit }}
-        poster={config.poster}
-        muted
-        playsInline
-        autoPlay={false}
-        loop={false}
-        preload={priority ? "auto" : armed ? "metadata" : "none"}
-        controls={false}
-        disablePictureInPicture
-        aria-label={ariaLabel}
-      >
-        {armed ? <source src={config.src} type="video/mp4" /> : null}
-      </video>
-      {reduceMotion ? (
-        // eslint-disable-next-line @next/next/no-img-element
-        <img
-          className={styles.fallback}
-          src={config.poster}
-          alt=""
-          aria-hidden
-        />
+      />
+      {!reduceMotion ? (
+        <video
+          ref={videoRef}
+          className={`${styles.video} ${finished ? styles.videoFaded : ""}`}
+          style={{ objectPosition, objectFit }}
+          poster={config.poster}
+          muted
+          playsInline
+          autoPlay={false}
+          loop={false}
+          preload={priority ? "auto" : armed ? "metadata" : "none"}
+          controls={false}
+          disablePictureInPicture
+          aria-label={ariaLabel}
+        >
+          {armed ? <source src={config.src} type="video/mp4" /> : null}
+        </video>
       ) : null}
     </div>
   );

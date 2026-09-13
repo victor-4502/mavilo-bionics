@@ -5,7 +5,7 @@
 
 .state {
   position: relative;
-  min-height: 100dvh;
+  min-height: min(88dvh, 52rem);
   display: grid;
   align-items: end;
   overflow: hidden;
@@ -74,7 +74,7 @@
 
 @media (max-width: 720px) {
   .state {
-    min-height: 92dvh;
+    min-height: 82dvh;
   }
 
   .stillFingers {
