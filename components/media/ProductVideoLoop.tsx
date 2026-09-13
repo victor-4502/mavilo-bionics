@@ -17,17 +17,14 @@ type ProductVideoLoopProps = {
   priority?: boolean;
   objectPosition?: string;
   objectFit?: "cover" | "contain";
-  /**
-   * When false, this instance never plays (used by scroll journey layers).
-   * Still shows the current frame / poster.
-   */
+  /** When false, never plays (journey inactive layers). */
   enabled?: boolean;
 };
 
 /**
- * Cinematic product player: cleanStart→cleanEnd with optional ping-pong.
- * Forward = native play. Reverse = rAF scrub (Safari-safe).
- * Never uses HTML loop. Hard-clamps to cleanEnd.
+ * Forward-only cinematic product video.
+ * Plays cleanStart→cleanEnd once, then holds the last clean frame.
+ * No HTML loop. No reverse. No currentTime scrubbing animation.
  */
 export function ProductVideoLoop({
   config,
@@ -41,30 +38,13 @@ export function ProductVideoLoop({
   const reactId = useId();
   const instanceId = `pvl-${reactId}`;
   const videoRef = useRef<HTMLVideoElement>(null);
-  const rafRef = useRef<number>(0);
-  const directionRef = useRef<"forward" | "reverse">("forward");
-  const runningRef = useRef(false);
   const endTimeRef = useRef<number | null>(config.cleanEnd ?? null);
-  const pauseTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const [finished, setFinished] = useState(false);
 
   const [armed, setArmed] = useState(priority);
   const [inView, setInView] = useState(priority);
   const [reduceMotion, setReduceMotion] = useState(false);
   const [isActiveSolo, setIsActiveSolo] = useState(false);
-
-  const clearRaf = () => {
-    if (rafRef.current) {
-      cancelAnimationFrame(rafRef.current);
-      rafRef.current = 0;
-    }
-  };
-
-  const clearPause = () => {
-    if (pauseTimerRef.current) {
-      clearTimeout(pauseTimerRef.current);
-      pauseTimerRef.current = null;
-    }
-  };
 
   const resolveEnd = useCallback(
     (video: HTMLVideoElement) => {
@@ -79,110 +59,6 @@ export function ProductVideoLoop({
     },
     [config.cleanEnd, config.cleanStart, config.endPad],
   );
-
-  const clampTime = useCallback(
-    (video: HTMLVideoElement, time: number) => {
-      const end = endTimeRef.current ?? resolveEnd(video);
-      return Math.min(end, Math.max(config.cleanStart, time));
-    },
-    [config.cleanStart, resolveEnd],
-  );
-
-  const waitPause = useCallback((ms: number) => {
-    return new Promise<void>((resolve) => {
-      clearPause();
-      if (ms <= 0) {
-        resolve();
-        return;
-      }
-      pauseTimerRef.current = setTimeout(() => resolve(), ms);
-    });
-  }, []);
-
-  const stopHard = useCallback(() => {
-    runningRef.current = false;
-    clearRaf();
-    clearPause();
-    const video = videoRef.current;
-    if (video) video.pause();
-  }, []);
-
-  const playForward = useCallback(async () => {
-    const video = videoRef.current;
-    if (!video || !runningRef.current || reduceMotion) return;
-    clearRaf();
-    directionRef.current = "forward";
-    const end = resolveEnd(video);
-    video.currentTime = clampTime(video, video.currentTime);
-    if (video.currentTime >= end - 0.02) {
-      video.currentTime = config.cleanStart;
-    }
-    video.playbackRate = config.playbackRate;
-    try {
-      await video.play();
-    } catch {
-      /* autoplay blocked */
-    }
-  }, [
-    clampTime,
-    config.cleanStart,
-    config.playbackRate,
-    reduceMotion,
-    resolveEnd,
-  ]);
-
-  const scrubReverse = useCallback(async () => {
-    const video = videoRef.current;
-    if (!video || !runningRef.current || reduceMotion) return;
-    clearRaf();
-    directionRef.current = "reverse";
-    video.pause();
-    // Snap to cleanEnd so reverse never starts past the defect window.
-    video.currentTime = clampTime(video, endTimeRef.current ?? resolveEnd(video));
-
-    await waitPause(config.pauseAtEndsMs);
-    if (!runningRef.current) return;
-
-    let last = performance.now();
-    const tick = (now: number) => {
-      if (!runningRef.current || directionRef.current !== "reverse") return;
-      const node = videoRef.current;
-      if (!node) return;
-
-      const dt = Math.min(0.048, (now - last) / 1000);
-      last = now;
-      const next =
-        node.currentTime - dt * config.playbackRate * config.reverseRate;
-
-      if (next <= config.cleanStart + 0.001) {
-        node.currentTime = config.cleanStart;
-        void (async () => {
-          await waitPause(config.pauseAtEndsMs);
-          if (runningRef.current) void playForward();
-        })();
-        return;
-      }
-
-      try {
-        node.currentTime = clampTime(node, next);
-      } catch {
-        /* seek abort */
-      }
-      rafRef.current = requestAnimationFrame(tick);
-    };
-
-    rafRef.current = requestAnimationFrame(tick);
-  }, [
-    clampTime,
-    config.cleanStart,
-    config.pauseAtEndsMs,
-    config.playbackRate,
-    config.reverseRate,
-    playForward,
-    reduceMotion,
-    resolveEnd,
-    waitPause,
-  ]);
 
   useEffect(() => {
     const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
@@ -204,11 +80,11 @@ export function ProductVideoLoop({
     const observer = new IntersectionObserver(
       ([entry]) => {
         const visible =
-          Boolean(entry?.isIntersecting) && (entry?.intersectionRatio ?? 0) >= 0.28;
+          Boolean(entry?.isIntersecting) && (entry?.intersectionRatio ?? 0) >= 0.3;
         setInView(visible);
         if (visible) setArmed(true);
       },
-      { rootMargin: "40px 0px", threshold: [0, 0.28, 0.55, 0.8] },
+      { rootMargin: "60px 0px", threshold: [0, 0.3, 0.6] },
     );
     observer.observe(node);
     return () => observer.disconnect();
@@ -220,21 +96,17 @@ export function ProductVideoLoop({
 
     const onLoaded = () => {
       resolveEnd(video);
-      video.currentTime = config.cleanStart;
+      if (!finished) {
+        video.currentTime = config.cleanStart;
+      }
     };
 
     const onTimeUpdate = () => {
-      if (!runningRef.current || directionRef.current !== "forward") return;
       const end = endTimeRef.current ?? resolveEnd(video);
-      // Hard stop before cleanEnd — never overshoot into defect frames.
-      if (video.currentTime >= end - 0.05) {
+      if (video.currentTime >= end - 0.04) {
         video.pause();
         video.currentTime = end;
-        if (config.mode === "once") {
-          runningRef.current = false;
-          return;
-        }
-        void scrubReverse();
+        setFinished(true);
       }
     };
 
@@ -246,12 +118,10 @@ export function ProductVideoLoop({
       video.removeEventListener("loadedmetadata", onLoaded);
       video.removeEventListener("timeupdate", onTimeUpdate);
     };
-  }, [armed, config.cleanStart, config.mode, resolveEnd, scrubReverse]);
-
-  const shouldPlay = enabled && inView && !reduceMotion && armed;
+  }, [armed, config.cleanStart, finished, resolveEnd]);
 
   useEffect(() => {
-    if (shouldPlay) {
+    if (enabled && inView && !reduceMotion && armed && !finished) {
       claimPlayback(instanceId);
       setIsActiveSolo(getActivePlaybackId() === instanceId);
     } else {
@@ -259,26 +129,47 @@ export function ProductVideoLoop({
       setIsActiveSolo(false);
     }
     return () => releasePlayback(instanceId);
-  }, [instanceId, shouldPlay]);
+  }, [armed, enabled, finished, inView, instanceId, reduceMotion]);
 
   useEffect(() => {
     const video = videoRef.current;
     if (!video || !armed) return;
 
-    const allowed = shouldPlay && isActiveSolo;
+    const allowed = enabled && inView && !reduceMotion && isActiveSolo && !finished;
+
     if (!allowed) {
-      stopHard();
+      video.pause();
       return;
     }
 
-    runningRef.current = true;
-    directionRef.current = "forward";
-    void playForward();
+    video.playbackRate = config.playbackRate;
+    if (video.currentTime < config.cleanStart) {
+      video.currentTime = config.cleanStart;
+    }
+    void video.play().catch(() => undefined);
 
     return () => {
-      stopHard();
+      video.pause();
     };
-  }, [armed, isActiveSolo, playForward, shouldPlay, stopHard, config.src]);
+  }, [
+    armed,
+    config.cleanStart,
+    config.playbackRate,
+    enabled,
+    finished,
+    inView,
+    isActiveSolo,
+    reduceMotion,
+    config.src,
+  ]);
+
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video || !finished) return;
+    video.pause();
+    const end = endTimeRef.current;
+    if (typeof end === "number") video.currentTime = end;
+  }, [finished, inView, enabled]);
 
   return (
     <div className={`${styles.frame} ${className ?? ""}`}>
