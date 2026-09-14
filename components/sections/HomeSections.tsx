@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import { ProductVideoLoop } from "@/components/media/ProductVideoLoop";
 import { useLocale } from "@/lib/locale";
 import { PRODUCT_IMAGES } from "@/lib/product-images";
@@ -101,80 +100,100 @@ export function EngineeringSection() {
 }
 
 /**
- * 06 — System. Compact signal → ecosystem → clinics narrative.
- * No invented app UI — product photo only if it adds a new angle.
+ * Phase 2 second half — editorial system / ecosystem / clinics.
+ * Typography + negative space. No product image reuse. No SaaS cards.
  */
 export function SystemSection() {
   const { t } = useLocale();
 
   return (
-    <section id="ecosistema" className={styles.system} aria-labelledby="system-title">
-      <div className="container">
-        <div className={styles.systemLead}>
+    <>
+      {/* Breath: engineering → signal */}
+      <section className={styles.bridge} aria-label={t.signal.bridge}>
+        <div className="container">
+          <p className={styles.bridgeLine}>{t.signal.bridge}</p>
+        </div>
+      </section>
+
+      {/* 06 — System: engineering diagram */}
+      <section id="senal" className={styles.system} aria-labelledby="system-title">
+        <div className={`container ${styles.systemInner}`}>
           <p className="eyebrow">{t.signal.eyebrow}</p>
-          <h2 id="system-title" className={styles.h2}>
+          <h2 id="system-title" className={styles.systemTitle}>
             {t.signal.title}
           </h2>
-          <p className={styles.bodyNarrow}>{t.signal.body}</p>
-        </div>
+          <p className={styles.systemBody}>{t.signal.body}</p>
 
-        <ol className={styles.signalRow} aria-label={t.signal.title}>
-          {t.signal.steps.map((step, index) => (
-            <li key={step} className={styles.signalChip}>
-              <span className={styles.signalLabel}>{step}</span>
-              {index < t.signal.steps.length - 1 ? (
-                <span className={styles.signalSep} aria-hidden>
-                  →
-                </span>
-              ) : null}
-            </li>
-          ))}
-        </ol>
-
-        <div className={styles.systemGrid}>
-          <div className={styles.systemCopy}>
-            <p className="eyebrow">{t.ecosystem.eyebrow}</p>
-            <h3 className={styles.h3}>{t.ecosystem.title}</h3>
-            <p className={styles.body}>{t.ecosystem.body}</p>
-            <ul className={styles.plainList}>
-              {t.ecosystem.points.map((point) => (
-                <li key={point}>{point}</li>
-              ))}
-            </ul>
-          </div>
-
-          <figure className={styles.stillPanel}>
-            <Image
-              src={PRODUCT_IMAGES.heroSideProfile}
-              alt={t.product.sideAlt}
-              width={1200}
-              height={900}
-              sizes="(max-width: 900px) 100vw, 36rem"
-            />
-          </figure>
-        </div>
-
-        <div className={styles.clinicsBlock} id="clinicas">
-          <p className="eyebrow">{t.clinics.eyebrow}</p>
-          <h3 className={styles.h3}>{t.clinics.title}</h3>
-          <p className={styles.bodyNarrow}>{t.clinics.body}</p>
-          <ul className={styles.clinicRow}>
-            {t.clinics.points.map((point, index) => (
-              <li key={point}>
-                <span className={styles.clinicIndex}>
+          <ol className={styles.signalDiagram} aria-label={t.signal.title}>
+            {t.signal.steps.map((step, index) => (
+              <li key={step} className={styles.signalNode}>
+                <span className={styles.signalMark}>
                   {String(index + 1).padStart(2, "0")}
                 </span>
-                <p>{point}</p>
+                <span className={styles.signalLabel}>{step}</span>
+                {index < t.signal.steps.length - 1 ? (
+                  <span className={styles.signalArrow} aria-hidden>
+                    →
+                  </span>
+                ) : null}
               </li>
             ))}
-          </ul>
+          </ol>
         </div>
-      </div>
-    </section>
+      </section>
+
+      {/* 07 — Ecosystem: product chain */}
+      <section id="ecosistema" className={styles.ecosystem} aria-labelledby="eco-title">
+        <div className="container">
+          <header className={styles.ecoLead}>
+            <p className="eyebrow">{t.ecosystem.eyebrow}</p>
+            <h2 id="eco-title" className={styles.h2}>
+              {t.ecosystem.title}
+            </h2>
+            <p className={styles.ecoBody}>{t.ecosystem.body}</p>
+          </header>
+
+          <ol className={styles.ecoChain}>
+            {t.ecosystem.pillars.map((pillar, index) => (
+              <li key={pillar.index} className={styles.ecoPillar}>
+                <span className={styles.ecoIndex}>{pillar.index}</span>
+                <h3 className={styles.ecoTitle}>{pillar.title}</h3>
+                <p className={styles.ecoPhrase}>{pillar.body}</p>
+                {index < t.ecosystem.pillars.length - 1 ? (
+                  <span className={styles.ecoFlow} aria-hidden>
+                    ↓
+                  </span>
+                ) : null}
+              </li>
+            ))}
+          </ol>
+        </div>
+      </section>
+
+      {/* 08 — Clinics: typography only */}
+      <section id="clinicas" className={styles.clinics} aria-labelledby="clinics-title">
+        <div className={`container ${styles.clinicsInner}`}>
+          <p className="eyebrow">{t.clinics.eyebrow}</p>
+          <h2 id="clinics-title" className={styles.h2}>
+            {t.clinics.title}
+          </h2>
+          <p className={styles.clinicsBody}>{t.clinics.body}</p>
+
+          <ol className={styles.clinicProcess}>
+            {t.clinics.steps.map((step) => (
+              <li key={step.index} className={styles.clinicStep}>
+                <span className={styles.clinicIndex}>{step.index}</span>
+                <span className={styles.clinicLabel}>{step.title}</span>
+              </li>
+            ))}
+          </ol>
+        </div>
+      </section>
+    </>
   );
 }
 
-/** 07 — Purpose + contact. Brand close, not corporate form. */
+/** 09 — Purpose + contact. Film-credit close, not corporate footer. */
 export function PurposeCtaSection() {
   const { t } = useLocale();
 
@@ -185,7 +204,6 @@ export function PurposeCtaSection() {
           <p className={styles.humanLine}>{t.human.line1}</p>
           <p className={styles.humanLineMuted}>{t.human.line2}</p>
           <p className={styles.aboutMark}>{t.about.title}</p>
-          <p className={styles.bodyNarrow}>{t.about.body}</p>
         </div>
 
         <div className={styles.purposeCta}>
@@ -193,14 +211,9 @@ export function PurposeCtaSection() {
             {t.cta.title}
           </h2>
           <p className={styles.finalBody}>{t.cta.body}</p>
-          <div className={styles.actions}>
-            <a className="btn btn-primary" href={`mailto:${t.cta.email}`}>
-              {t.cta.primary}
-            </a>
-            <a className="btn btn-ghost" href="#mav1">
-              {t.cta.secondary}
-            </a>
-          </div>
+          <a className={`btn btn-primary ${styles.ctaOnly}`} href={`mailto:${t.cta.email}`}>
+            {t.cta.primary}
+          </a>
           <a className={styles.email} href={`mailto:${t.cta.email}`}>
             {t.cta.email}
           </a>

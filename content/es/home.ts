@@ -99,29 +99,41 @@ const es: HomeContent = {
   signal: {
     eyebrow: "El sistema",
     title: "Señal que se convierte en movimiento.",
-    body: "EMG → procesamiento → control → movimiento. Un flujo continuo entre cuerpo, electrónica y mecanismo.",
+    body: "Un flujo continuo entre cuerpo, electrónica y mecanismo.",
+    bridge: "De la arquitectura física a la señal.",
     steps: ["Señal", "EMG", "Procesamiento", "Control", "Movimiento"],
   },
   ecosystem: {
     eyebrow: "Ecosistema",
-    title: "MAV 1 + calibración + app + clínica.",
-    body: "La mano se integra con calibración de umbral, configuración del dispositivo y un flujo conectado entre uso diario y acompañamiento clínico.",
-    points: [
-      "Visualización de la señal muscular",
-      "Calibración segura del umbral",
-      "Configuración del dispositivo",
-      "Flujo conectado dispositivo–clínica",
+    title: "Un ecosistema de producto.",
+    body: "El dispositivo puede calibrarse, configurarse y acompañarse.",
+    pillars: [
+      {
+        index: "01",
+        title: "MAV 1",
+        body: "Dispositivo físico.",
+      },
+      {
+        index: "02",
+        title: "Calibración",
+        body: "Ajuste de la señal y respuesta.",
+      },
+      {
+        index: "03",
+        title: "Clínica",
+        body: "Acompañamiento y configuración.",
+      },
     ],
   },
   clinics: {
     eyebrow: "Clínicas",
     title: "Acompañamiento en el proceso clínico.",
     body: "Pensado para identificación de dispositivos, gestión de usuarios y calibración en consulta.",
-    points: [
-      "Identificación del dispositivo",
-      "Gestión de usuarios",
-      "Calibración en consulta",
-      "Configuración y acompañamiento",
+    steps: [
+      { index: "01", title: "Identificación" },
+      { index: "02", title: "Gestión" },
+      { index: "03", title: "Calibración" },
+      { index: "04", title: "Configuración" },
     ],
   },
   human: {

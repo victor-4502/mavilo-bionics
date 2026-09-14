@@ -66,19 +66,21 @@ export type HomeContent = {
     eyebrow: string;
     title: string;
     body: string;
+    /** Short bridge after engineering — visual breath. */
+    bridge: string;
     steps: string[];
   };
   ecosystem: {
     eyebrow: string;
     title: string;
     body: string;
-    points: string[];
+    pillars: { index: string; title: string; body: string }[];
   };
   clinics: {
     eyebrow: string;
     title: string;
     body: string;
-    points: string[];
+    steps: { index: string; title: string }[];
   };
   human: {
     line1: string;

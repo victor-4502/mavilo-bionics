@@ -7,21 +7,300 @@
 }
 
 .engineering {
-  padding: clamp(3.5rem, 9vh, 6rem) 0;
+  padding: clamp(3.5rem, 9vh, 6rem) 0 clamp(2.5rem, 6vh, 4rem);
   background: #050b14;
 }
 
+/* —— Breath after engineering —— */
+.bridge {
+  padding: clamp(3.5rem, 10vh, 6rem) 0;
+  background: #040910;
+  border-top: 1px solid rgba(255, 255, 255, 0.04);
+  min-height: min(26dvh, 14rem);
+  display: grid;
+  align-items: center;
+}
+
+.bridgeLine {
+  margin: 0;
+  max-width: 28rem;
+  font-family: var(--font-display);
+  font-size: clamp(1.15rem, 2.4vw, 1.55rem);
+  letter-spacing: 0.04em;
+  line-height: 1.35;
+  color: var(--color-text-muted);
+}
+
+/* —— System: engineering diagram, ~50–65dvh —— */
 .system {
-  padding: clamp(3.5rem, 9vh, 6rem) 0;
-  background: #070f1a;
-  border-block: 1px solid var(--color-line);
+  padding: clamp(3rem, 8vh, 5rem) 0;
+  background: #050b14;
+  min-height: min(58dvh, 34rem);
+  display: grid;
+  align-items: center;
 }
 
-.purpose {
-  padding: clamp(3.5rem, 10vh, 6.5rem) 0 clamp(4rem, 11vh, 7rem);
+.systemInner {
+  max-width: 72rem;
+}
+
+.systemTitle {
+  margin: 0;
+  max-width: 22ch;
+  font-family: var(--font-display);
+  font-size: clamp(1.85rem, 4.2vw, 2.85rem);
+  font-weight: 560;
+  line-height: var(--lh-tight);
+  letter-spacing: var(--track-display);
+}
+
+.systemBody {
+  margin: 1.25rem 0 0;
+  max-width: 32rem;
+  color: var(--color-text-muted);
+  font-size: var(--fs-lead);
+}
+
+.signalDiagram {
+  list-style: none;
+  margin: clamp(2.75rem, 7vh, 4.5rem) 0 0;
+  padding: 1.75rem 0 0;
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 0.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.signalNode {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.55rem;
+  flex: 1 1 0;
+  min-width: 0;
+}
+
+.signalMark {
+  font-family: var(--font-display);
+  font-size: 0.7rem;
+  letter-spacing: 0.14em;
+  color: var(--color-cyan);
+}
+
+.signalLabel {
+  font-family: var(--font-display);
+  font-size: clamp(0.95rem, 1.8vw, 1.35rem);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-text);
+  line-height: 1.15;
+}
+
+.signalArrow {
+  position: absolute;
+  right: -0.15rem;
+  bottom: 0.2rem;
+  color: var(--color-text-subtle);
+  font-size: 0.95rem;
+  transform: translateX(50%);
+}
+
+/* —— Ecosystem: product chain —— */
+.ecosystem {
+  padding: clamp(4rem, 12vh, 7.5rem) 0;
+  background: #070f1a;
+  border-block: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.ecoLead {
+  max-width: 32rem;
+  margin-bottom: clamp(2.5rem, 7vh, 4.5rem);
+}
+
+.ecoBody {
+  margin: 1rem 0 0;
+  color: var(--color-text-muted);
+  font-size: var(--fs-lead);
+}
+
+.ecoChain {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(1.5rem, 4vw, 3.5rem);
+  max-width: 64rem;
+}
+
+.ecoPillar {
+  position: relative;
+  padding-top: 0.25rem;
+}
+
+.ecoIndex {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 0.75rem;
+  letter-spacing: 0.14em;
+  color: var(--color-cyan);
+  margin-bottom: 1rem;
+}
+
+.ecoTitle {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: clamp(1.65rem, 3.2vw, 2.35rem);
+  font-weight: 560;
+  letter-spacing: var(--track-display);
+  line-height: 1.1;
+}
+
+.ecoPhrase {
+  margin: 1rem 0 0;
+  max-width: 16rem;
+  color: var(--color-text-muted);
+  font-size: 1rem;
+  line-height: 1.45;
+}
+
+.ecoFlow {
+  display: none;
+}
+
+/* —— Clinics: typography process —— */
+.clinics {
+  padding: clamp(4rem, 11vh, 7rem) 0;
   background: #050b14;
 }
 
+.clinicsInner {
+  max-width: 48rem;
+}
+
+.clinicsBody {
+  margin: 1.15rem 0 0;
+  max-width: 36rem;
+  color: var(--color-text-muted);
+  font-size: var(--fs-lead);
+}
+
+.clinicProcess {
+  list-style: none;
+  margin: clamp(2.75rem, 7vh, 4rem) 0 0;
+  padding: 0;
+  display: grid;
+  gap: 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.clinicStep {
+  display: grid;
+  grid-template-columns: 3.5rem 1fr;
+  gap: 1.25rem;
+  align-items: baseline;
+  padding: 1.35rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.clinicIndex {
+  font-family: var(--font-display);
+  font-size: 0.8rem;
+  letter-spacing: 0.12em;
+  color: var(--color-cyan);
+}
+
+.clinicLabel {
+  font-family: var(--font-display);
+  font-size: clamp(1.25rem, 2.4vw, 1.65rem);
+  letter-spacing: 0.02em;
+  color: var(--color-text);
+}
+
+/* —— Purpose + contact —— */
+.purpose {
+  padding: clamp(5rem, 14vh, 9rem) 0 clamp(4.5rem, 12vh, 8rem);
+  background: #040910;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.purposeInner {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: clamp(3rem, 8vw, 6rem);
+  align-items: end;
+}
+
+.purposeBrand {
+  max-width: 38rem;
+}
+
+.humanLine {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 5vw, 3.35rem);
+  line-height: 1.12;
+  letter-spacing: var(--track-display);
+}
+
+.humanLineMuted {
+  margin: 1.15rem 0 0;
+  font-family: var(--font-display);
+  font-size: clamp(1.35rem, 3vw, 2rem);
+  line-height: 1.2;
+  letter-spacing: var(--track-display);
+  color: var(--color-text-muted);
+}
+
+.aboutMark {
+  margin: 2.5rem 0 0;
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--color-cyan);
+}
+
+.purposeCta {
+  max-width: 26rem;
+  padding-bottom: 0.35rem;
+}
+
+.finalTitle {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: clamp(2.25rem, 5vw, 3.5rem);
+  letter-spacing: var(--track-display);
+  line-height: var(--lh-tight);
+}
+
+.finalBody {
+  margin: 1rem 0 0;
+  color: var(--color-text-muted);
+  font-size: var(--fs-lead);
+}
+
+.ctaOnly {
+  display: inline-flex;
+  margin-top: 1.75rem;
+}
+
+.email {
+  display: block;
+  margin-top: 1.35rem;
+  color: var(--color-cyan);
+  font-size: 1rem;
+  letter-spacing: 0.02em;
+}
+
+.email:hover {
+  text-decoration: underline;
+}
+
+/* Shared (first-half sections untouched structurally) */
 .sectionBleed {
   position: relative;
   min-height: min(82dvh, 48rem);
@@ -73,8 +352,7 @@
   max-width: 34rem;
 }
 
-.lead,
-.systemLead {
+.lead {
   max-width: 40rem;
   margin-bottom: clamp(1.5rem, 4vh, 2.5rem);
 }
@@ -83,15 +361,6 @@
   margin: 0;
   font-family: var(--font-display);
   font-size: var(--fs-h2);
-  font-weight: 560;
-  line-height: var(--lh-tight);
-  letter-spacing: var(--track-display);
-}
-
-.h3 {
-  margin: 0;
-  font-family: var(--font-display);
-  font-size: clamp(1.2rem, 2.2vw, 1.55rem);
   font-weight: 560;
   line-height: var(--lh-tight);
   letter-spacing: var(--track-display);
@@ -109,7 +378,6 @@
 }
 
 .mediaPanel,
-.stillPanel,
 .mediaWide {
   position: relative;
   overflow: hidden;
@@ -117,21 +385,13 @@
   border: 1px solid var(--color-line);
 }
 
-.mediaPanel,
-.stillPanel {
+.mediaPanel {
   aspect-ratio: 4 / 3;
 }
 
 .mediaWide {
   aspect-ratio: 16 / 9;
   margin-bottom: clamp(1.75rem, 4vh, 2.75rem);
-}
-
-.stillPanel img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: 30% 48%;
 }
 
 .engList {
@@ -169,206 +429,79 @@
   color: var(--color-text-muted);
 }
 
-.signalRow {
-  list-style: none;
-  margin: 0 0 clamp(2rem, 5vh, 3rem);
-  padding: 1.25rem 0;
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 0.35rem 0.15rem;
-  border-block: 1px solid var(--color-line);
-}
-
-.signalChip {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.35rem;
-}
-
-.signalLabel {
-  font-family: var(--font-display);
-  font-size: clamp(0.85rem, 1.6vw, 1.05rem);
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--color-text);
-}
-
-.signalSep {
-  color: var(--color-text-subtle);
-  margin-right: 0.35rem;
-  font-size: 0.9rem;
-}
-
-.systemGrid {
-  display: grid;
-  grid-template-columns: 1.1fr 0.9fr;
-  gap: clamp(1.5rem, 4vw, 3rem);
-  align-items: center;
-  margin-bottom: clamp(2.25rem, 5vh, 3.5rem);
-}
-
-.systemCopy {
-  max-width: 36rem;
-}
-
-.plainList {
-  list-style: none;
-  margin: 1.25rem 0 0;
-  padding: 0;
-  display: grid;
-  gap: 0.55rem;
-}
-
-.plainList li {
-  color: var(--color-text-muted);
-  padding-left: 0.9rem;
-  position: relative;
-}
-
-.plainList li::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 0.55em;
-  width: 0.35rem;
-  height: 0.35rem;
-  border-radius: 50%;
-  background: var(--color-blue);
-}
-
-.clinicsBlock {
-  max-width: 56rem;
-}
-
-.clinicRow {
-  list-style: none;
-  margin: 1.25rem 0 0;
-  padding: 0;
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 1rem;
-}
-
-.clinicRow li {
-  padding: 1rem 0 0;
-  border-top: 1px solid var(--color-line);
-}
-
-.clinicIndex {
-  display: block;
-  margin-bottom: 0.5rem;
-  font-family: var(--font-display);
-  color: var(--color-cyan);
-  letter-spacing: 0.08em;
-  font-size: 0.85rem;
-}
-
-.clinicRow p {
-  margin: 0;
-  color: var(--color-text-muted);
-  font-size: 0.95rem;
-}
-
-.purposeInner {
-  display: grid;
-  grid-template-columns: 1.1fr 0.9fr;
-  gap: clamp(2rem, 5vw, 4rem);
-  align-items: end;
-}
-
-.purposeBrand {
-  max-width: 34rem;
-}
-
-.humanLine {
-  margin: 0;
-  font-family: var(--font-display);
-  font-size: clamp(1.45rem, 3vw, 2.1rem);
-  line-height: 1.2;
-  letter-spacing: var(--track-display);
-}
-
-.humanLineMuted {
-  margin: 0.65rem 0 0;
-  font-family: var(--font-display);
-  font-size: clamp(1.2rem, 2.4vw, 1.65rem);
-  line-height: 1.25;
-  letter-spacing: var(--track-display);
-  color: var(--color-text-muted);
-}
-
-.aboutMark {
-  margin: 1.75rem 0 0;
-  font-family: var(--font-display);
-  font-size: 1.05rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--color-cyan);
-}
-
-.purposeCta {
-  max-width: 28rem;
-}
-
-.finalTitle {
-  margin: 0;
-  font-family: var(--font-display);
-  font-size: clamp(1.85rem, 4vw, 2.75rem);
-  letter-spacing: var(--track-display);
-  line-height: var(--lh-tight);
-}
-
-.finalBody {
-  margin: 0.85rem 0 0;
-  color: var(--color-text-muted);
-  font-size: var(--fs-lead);
-}
-
-.actions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.75rem;
-  margin-top: 1.5rem;
-}
-
-.email {
-  display: inline-block;
-  margin-top: 1.25rem;
-  color: var(--color-cyan);
-  font-size: 0.95rem;
-}
-
-.email:hover {
-  text-decoration: underline;
-}
-
 @media (max-width: 960px) {
   .split,
-  .systemGrid,
   .purposeInner {
     grid-template-columns: 1fr;
-  }
-
-  .clinicRow {
-    grid-template-columns: 1fr 1fr;
   }
 
   .identity {
     min-height: 0;
   }
+
+  .signalDiagram {
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: stretch;
+    gap: 0;
+    border-top: none;
+    padding-top: 0;
+  }
+
+  .signalNode {
+    flex-direction: row;
+    align-items: baseline;
+    gap: 1rem;
+    padding: 1.1rem 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  }
+
+  .signalMark {
+    min-width: 1.75rem;
+  }
+
+  .signalArrow {
+    position: static;
+    transform: none;
+    margin-left: auto;
+    rotate: 90deg;
+  }
+
+  .ecoChain {
+    grid-template-columns: 1fr;
+    gap: 0;
+    max-width: 28rem;
+  }
+
+  .ecoPillar {
+    padding: 1.75rem 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  }
+
+  .ecoPillar:first-child {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .ecoFlow {
+    display: none;
+  }
+
+  .bridge {
+    min-height: 0;
+    padding: clamp(3rem, 8vh, 4.5rem) 0;
+  }
+
+  .system {
+    min-height: 0;
+  }
 }
 
 @media (max-width: 640px) {
-  .clinicRow {
-    grid-template-columns: 1fr;
-  }
-
   .sectionBleed {
     min-height: 72dvh;
   }
 
-  .signalRow {
-    gap: 0.5rem 0.25rem;
+  .humanLine {
+    font-size: clamp(1.75rem, 8vw, 2.35rem);
   }
 }

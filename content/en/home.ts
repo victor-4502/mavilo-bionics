@@ -99,29 +99,41 @@ const en: HomeContent = {
   signal: {
     eyebrow: "The system",
     title: "Signal that becomes movement.",
-    body: "EMG → processing → control → movement. A continuous flow between body, electronics, and mechanism.",
+    body: "A continuous flow between body, electronics, and mechanism.",
+    bridge: "From physical architecture to signal.",
     steps: ["Signal", "EMG", "Processing", "Control", "Movement"],
   },
   ecosystem: {
     eyebrow: "Ecosystem",
-    title: "MAV 1 + calibration + app + clinic.",
-    body: "The hand integrates threshold calibration, device configuration, and a connected workflow between daily use and clinical support.",
-    points: [
-      "Muscle signal visualization",
-      "Safe threshold calibration",
-      "Device configuration",
-      "Connected device–clinic workflow",
+    title: "A product ecosystem.",
+    body: "The device can be calibrated, configured, and supported.",
+    pillars: [
+      {
+        index: "01",
+        title: "MAV 1",
+        body: "Physical device.",
+      },
+      {
+        index: "02",
+        title: "Calibration",
+        body: "Signal and response adjustment.",
+      },
+      {
+        index: "03",
+        title: "Clinic",
+        body: "Support and configuration.",
+      },
     ],
   },
   clinics: {
     eyebrow: "Clinics",
     title: "Support within the clinical process.",
-    body: "Built around device identification, user management, and in-clinic calibration.",
-    points: [
-      "Device identification",
-      "User management",
-      "In-clinic calibration",
-      "Configuration and support",
+    body: "Built for device identification, user management, and in-clinic calibration.",
+    steps: [
+      { index: "01", title: "Identification" },
+      { index: "02", title: "Management" },
+      { index: "03", title: "Calibration" },
+      { index: "04", title: "Configuration" },
     ],
   },
   human: {

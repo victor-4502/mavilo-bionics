@@ -31,9 +31,9 @@ function DocumentMeta() {
 }
 
 /**
- * Home narrative — 7 acts:
- * 01 WOW → 02 Identity → 03 Discover MAV 1 → 04 Movement
- * → 05 Engineering → 06 System → 07 Purpose + Contact
+ * Home narrative — 7 acts (+ editorial second half):
+ * 01 WOW → 02 Identity → 03 Discover → 04 Movement → 05 Engineering
+ * → bridge → 06 System → 07 Ecosystem → 08 Clinics → 09 Purpose + Contact
  */
 export default function HomePage() {
   return (
