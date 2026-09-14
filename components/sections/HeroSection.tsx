@@ -17,7 +17,7 @@ export function HeroSection() {
           config={PRODUCT_VIDEOS.palmHero}
           priority
           ariaLabel={t.hero.videoLabel}
-          objectPosition="52% 42%"
+          objectPosition="50% 40%"
           endStill={PRODUCT_IMAGES.heroPalm}
         />
         <div className={styles.veil} aria-hidden />

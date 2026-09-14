@@ -28,7 +28,7 @@ const en: HomeContent = {
   intro: {
     brand: "MAVILO",
     title: "Mexican engineering applied to human mobility.",
-    body: "We develop bionic systems that integrate mechanical design, myoelectric control, electronics, and software into a single product ecosystem.",
+    body: "Mechanical design, myoelectric control, electronics, and software in one product ecosystem.",
     videoLabel: "MAVILO branding detail on MAV 1",
   },
   product: {

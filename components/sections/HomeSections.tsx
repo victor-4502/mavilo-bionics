@@ -78,8 +78,8 @@ export function EngineeringSection() {
           <ProductVideoLoop
             config={PRODUCT_VIDEOS.dorsalPush}
             ariaLabel={t.engineering.videoLabel}
-            objectPosition="50% 40%"
-            endStill={PRODUCT_IMAGES.heroDorsal}
+          objectPosition="50% 38%"
+          endStill={PRODUCT_IMAGES.heroDorsal}
           />
         </div>
 

@@ -28,7 +28,7 @@ const es: HomeContent = {
   intro: {
     brand: "MAVILO",
     title: "Ingeniería mexicana aplicada a la movilidad humana.",
-    body: "Desarrollamos sistemas biónicos que integran diseño mecánico, control mioeléctrico, electrónica y software en un solo ecosistema de producto.",
+    body: "Diseño mecánico, control mioeléctrico, electrónica y software en un solo ecosistema de producto.",
     videoLabel: "Detalle de marca MAVILO en MAV 1",
   },
   product: {

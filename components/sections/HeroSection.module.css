@@ -12,35 +12,43 @@
   inset: 0;
 }
 
+/* Product campaign scale — hand fills the frame without inventing crop */
+.media :global(video),
+.media :global(img.still),
+.media :global(img) {
+  transform: scale(1.14);
+  transform-origin: 52% 42%;
+}
+
 .veil {
   position: absolute;
   inset: 0;
   background:
     linear-gradient(
       180deg,
-      rgba(5, 11, 20, 0.28) 0%,
-      rgba(5, 11, 20, 0.08) 38%,
-      rgba(5, 11, 20, 0.55) 72%,
-      rgba(5, 11, 20, 0.92) 100%
+      rgba(5, 11, 20, 0.18) 0%,
+      rgba(5, 11, 20, 0.02) 36%,
+      rgba(5, 11, 20, 0.42) 68%,
+      rgba(5, 11, 20, 0.9) 100%
     ),
-    linear-gradient(90deg, rgba(5, 11, 20, 0.42) 0%, transparent 42%);
+    linear-gradient(90deg, rgba(5, 11, 20, 0.5) 0%, rgba(5, 11, 20, 0.12) 28%, transparent 48%);
   pointer-events: none;
 }
 
 .copy {
   position: relative;
   z-index: 1;
-  padding-bottom: clamp(3.5rem, 10vh, 6.5rem);
+  padding-bottom: clamp(3.25rem, 9vh, 5.75rem);
   padding-top: calc(var(--header-h) + 2rem);
-  max-width: 38rem;
+  max-width: 36rem;
 }
 
 .brand {
-  margin: 0 0 0.75rem;
+  margin: 0 0 0.85rem;
   font-family: var(--font-display);
-  font-size: clamp(0.85rem, 1.4vw, 1rem);
+  font-size: clamp(0.78rem, 1.2vw, 0.9rem);
   font-weight: 600;
-  letter-spacing: 0.18em;
+  letter-spacing: 0.22em;
   text-transform: uppercase;
   color: var(--color-cyan);
 }
@@ -48,25 +56,41 @@
 .title {
   margin: 0;
   font-family: var(--font-display);
-  font-size: var(--fs-hero);
+  font-size: clamp(2.75rem, 7.2vw, 5.1rem);
   font-weight: 560;
-  line-height: var(--lh-tight);
-  letter-spacing: var(--track-display);
+  line-height: 0.98;
+  letter-spacing: -0.035em;
   color: var(--color-text);
 }
 
 .subtitle {
-  margin: 1rem 0 0;
-  max-width: 28rem;
-  font-size: var(--fs-lead);
+  margin: 1.15rem 0 0;
+  max-width: 24rem;
+  font-size: clamp(0.95rem, 1.3vw, 1.05rem);
+  line-height: 1.5;
   color: var(--color-text-muted);
 }
 
 .actions {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.75rem;
-  margin-top: 1.75rem;
+  align-items: center;
+  gap: 0.85rem 1.1rem;
+  margin-top: 1.85rem;
+}
+
+.actions :global(.btn-ghost) {
+  border-color: transparent;
+  color: var(--color-text-muted);
+  font-weight: 500;
+  min-height: 2.5rem;
+  padding-inline: 0.35rem;
+}
+
+.actions :global(.btn-ghost:hover) {
+  color: var(--color-text);
+  background: transparent;
+  border-color: transparent;
 }
 
 .preload {
@@ -82,12 +106,29 @@
     max-width: none;
   }
 
+  .media :global(video),
+  .media :global(img) {
+    transform: scale(1.2);
+    transform-origin: 55% 38%;
+  }
+
+  .title {
+    font-size: clamp(2.35rem, 11vw, 3.25rem);
+  }
+
   .veil {
     background: linear-gradient(
       180deg,
-      rgba(5, 11, 20, 0.2) 0%,
-      rgba(5, 11, 20, 0.55) 55%,
+      rgba(5, 11, 20, 0.12) 0%,
+      rgba(5, 11, 20, 0.35) 48%,
       rgba(5, 11, 20, 0.96) 100%
     );
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .media :global(video),
+  .media :global(img) {
+    transform: none;
   }
 }
