@@ -130,10 +130,10 @@ const en: HomeContent = {
     title: "Support within the clinical process.",
     body: "Built for device identification, user management, and in-clinic calibration.",
     steps: [
-      { index: "01", title: "Identification" },
-      { index: "02", title: "Management" },
-      { index: "03", title: "Calibration" },
-      { index: "04", title: "Configuration" },
+      { index: "01", title: "Device identification" },
+      { index: "02", title: "User management" },
+      { index: "03", title: "In-clinic calibration" },
+      { index: "04", title: "Configuration and support" },
     ],
   },
   human: {

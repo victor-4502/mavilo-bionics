@@ -168,7 +168,17 @@
 }
 
 .ecoFlow {
-  display: none;
+  position: absolute;
+  right: -0.35rem;
+  top: 2.65rem;
+  transform: translateX(50%);
+  color: var(--color-text-subtle);
+  font-size: 1rem;
+  line-height: 1;
+}
+
+.ecoFlow::before {
+  content: "→";
 }
 
 /* —— Clinics: typography process —— */
@@ -483,7 +493,14 @@
   }
 
   .ecoFlow {
-    display: none;
+    position: static;
+    display: block;
+    transform: none;
+    margin-top: 1.25rem;
+  }
+
+  .ecoFlow::before {
+    content: "↓";
   }
 
   .bridge {

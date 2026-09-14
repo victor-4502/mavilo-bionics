@@ -160,9 +160,7 @@ export function SystemSection() {
                 <h3 className={styles.ecoTitle}>{pillar.title}</h3>
                 <p className={styles.ecoPhrase}>{pillar.body}</p>
                 {index < t.ecosystem.pillars.length - 1 ? (
-                  <span className={styles.ecoFlow} aria-hidden>
-                    ↓
-                  </span>
+                  <span className={styles.ecoFlow} aria-hidden />
                 ) : null}
               </li>
             ))}

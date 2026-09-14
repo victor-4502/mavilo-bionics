@@ -130,10 +130,10 @@ const es: HomeContent = {
     title: "Acompañamiento en el proceso clínico.",
     body: "Pensado para identificación de dispositivos, gestión de usuarios y calibración en consulta.",
     steps: [
-      { index: "01", title: "Identificación" },
-      { index: "02", title: "Gestión" },
-      { index: "03", title: "Calibración" },
-      { index: "04", title: "Configuración" },
+      { index: "01", title: "Identificación del dispositivo" },
+      { index: "02", title: "Gestión de usuarios" },
+      { index: "03", title: "Calibración en consulta" },
+      { index: "04", title: "Configuración y acompañamiento" },
     ],
   },
   human: {
